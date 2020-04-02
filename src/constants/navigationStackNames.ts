@@ -1,3 +1,3 @@
 export default {
-  AuthStack: 'AuthStack'
+  AuthStack: 'AuthStack',
 };

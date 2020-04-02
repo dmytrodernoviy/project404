@@ -3,5 +3,5 @@ import { baseAPIURL } from '@src/constants/apiConsts';
 
 export const apiInstance = create({
   baseURL: baseAPIURL,
-  timeout: 10000
+  timeout: 10000,
 });

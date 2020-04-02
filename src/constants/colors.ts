@@ -4,7 +4,7 @@ const colors = {
   authTopBlock: '#049797',
   error: 'red',
   gray: '#BEBEBE',
-  button: 'gray'
+  button: 'gray',
 };
 
 export default colors;
