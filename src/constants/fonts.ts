@@ -13,6 +13,10 @@ const fonts = {
     fontFamily: 'Roboto-Medium',
     fontSize: normalize(22, 'height'),
   },
+  popupButton: {
+    fontFamily: 'Roboto-Medium',
+    fontSize: normalize(16, 'height'),
+  },
 };
 
 export default fonts;

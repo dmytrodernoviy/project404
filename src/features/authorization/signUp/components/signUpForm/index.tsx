@@ -2,21 +2,26 @@ import React from 'react';
 import { View } from 'react-native';
 import { Formik } from 'formik';
 import { FormInput, SubmitButton } from '@src/components';
-import styles from '@src/features/authorization/signIn/components/SignInForm/styles';
 import { SignInValidationSchema } from '@src/utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { DispatcherService } from '@src/services';
+import SubscribeSwitch from '@src/features/authorization/signUp/components/SubscribeSwitch';
+import styles from '@src/features/authorization/signUp/components/signUpForm/styles';
 import { AuthSelectors } from '@src/redux/auth/selectors';
+import { SignUpFormValuesType } from '@src/redux/auth/types';
+import { Props } from '@src/features/authorization/signUp/components/signUpForm/types';
 
-const SignInForm: React.FC = () => {
+const SignUpForm: React.FC<Props> = ({ setPopupVisible }) => {
   const dispatch = useDispatch();
-  const isSignInLoading = useSelector(AuthSelectors.isSignInLoading);
+  const isSignInLoading = useSelector(AuthSelectors.isSignUpLoading);
 
   return (
     <Formik
-      initialValues={{ email: '', password: '' }}
+      initialValues={{ email: '', password: '', subscribe: false }}
       validationSchema={SignInValidationSchema}
-      onSubmit={(values): void => DispatcherService.signIn(dispatch, values)}>
+      onSubmit={(values: SignUpFormValuesType): void =>
+        DispatcherService.signUp(dispatch, values, setPopupVisible)
+      }>
       {({
         handleChange,
         handleBlur,
@@ -24,6 +29,7 @@ const SignInForm: React.FC = () => {
         values,
         errors,
         touched,
+        setFieldValue,
       }): Element => (
         <View style={styles.container}>
           <View>
@@ -46,10 +52,12 @@ const SignInForm: React.FC = () => {
               touched={touched.password}
             />
           </View>
+          <SubscribeSwitch handleSwitch={setFieldValue} />
           <SubmitButton
-            label="Login"
+            label="Register"
             onPress={handleSubmit}
             isLoading={isSignInLoading}
+            positionRight
           />
         </View>
       )}
@@ -57,4 +65,4 @@ const SignInForm: React.FC = () => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;

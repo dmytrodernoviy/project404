@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   Image,
   SafeAreaView,
@@ -7,12 +7,27 @@ import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
 } from 'react-native';
-import styles from './signIn.styles';
+import styles from './signUp.styles';
 import { images, screenNames } from '@src/constants';
 import NextScreenButton from '@src/features/authorization/signIn/components/NextScreenButton';
-import SignInForm from '@src/features/authorization/signIn/components/SignInForm';
+import SignUpForm from '@src/features/authorization/signUp/components/signUpForm';
+import { AnimatedPopup } from '@src/components';
+import { NavigationService } from '@src/services';
 
-const SignInScreen: React.FC = () => {
+const SignUpScreen: React.FC = () => {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  const onPopupButtonPress = useCallback(() => {
+    setIsPopupVisible((prevState) => {
+      NavigationService.navigate(screenNames.SignInScreen);
+      return !prevState;
+    });
+  }, []);
+
+  const setPopupVisible = useCallback(() => {
+    setIsPopupVisible((prevState) => !prevState);
+  }, []);
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.dismissContainer}>
@@ -31,14 +46,18 @@ const SignInScreen: React.FC = () => {
                 style={styles.logo}
                 resizeMode="contain"
               />
-              <SignInForm />
+              <SignUpForm setPopupVisible={setPopupVisible} />
             </KeyboardAvoidingView>
-            <NextScreenButton routeName={screenNames.SignUpScreen} />
+            <NextScreenButton routeName={screenNames.SignInScreen} />
           </View>
         </SafeAreaView>
+        <AnimatedPopup
+          isVisible={isPopupVisible}
+          onButtonPress={onPopupButtonPress}
+        />
       </View>
     </TouchableWithoutFeedback>
   );
 };
 
-export default SignInScreen;
+export default SignUpScreen;

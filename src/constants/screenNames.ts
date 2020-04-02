@@ -1,3 +1,4 @@
 export default {
-  SignInScreen: 'SignInScreen'
+  SignInScreen: 'SignInScreen',
+  SignUpScreen: 'SignUpScreen',
 };

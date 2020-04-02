@@ -12,4 +12,7 @@ export default StyleSheet.create({
     marginLeft: normalize(10),
     width: normalize(60),
   },
+  rightPosition: {
+    alignSelf: 'flex-end',
+  },
 });

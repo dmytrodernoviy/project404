@@ -1,3 +1,3 @@
 export interface Props {
-  onPress: () => void;
+  routeName: string;
 }

@@ -12,6 +12,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     width: '60%',
   },
+  positionRight: {
+    alignSelf: 'flex-end',
+  },
   label: {
     ...fonts.submit,
     color: colors.authAdd,
