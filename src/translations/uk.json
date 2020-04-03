@@ -1,0 +1,11 @@
+{
+  "empty": "",
+  "email": "Пошта",
+  "password": "Пароль",
+  "subscribe": "Підписка",
+  "register": "Реєстрація",
+  "login": "Увійти",
+  "required_field": "Поле обов'язкове",
+  "invalid_email": "Невірний формат",
+  "short_password": "Мінімум 8 символів"
+}

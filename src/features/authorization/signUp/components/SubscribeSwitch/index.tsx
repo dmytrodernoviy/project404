@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Switch, Text, View } from 'react-native';
 import styles from '@src/features/authorization/signUp/components/SubscribeSwitch/styles';
 import { Props } from './types';
-import { colors } from '@src/constants';
+import { colors, translationsConstants } from '@src/constants';
+import { translationString } from '@src/translations';
 
-const SubscribeSwitch: React.FC<Props> = ({ handleSwitch }) => {
+const SubscribeSwitch: React.FC<Props> = ({ handleSwitch, locale }) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = (): void => {
     setIsEnabled((prevState) => {
@@ -15,7 +16,9 @@ const SubscribeSwitch: React.FC<Props> = ({ handleSwitch }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Subscribe</Text>
+      <Text style={styles.title}>
+        {translationString(translationsConstants.subscribe, locale)}
+      </Text>
       <Switch
         value={isEnabled}
         onValueChange={toggleSwitch}

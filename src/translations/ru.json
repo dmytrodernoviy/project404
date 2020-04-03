@@ -1,0 +1,11 @@
+{
+  "empty": "",
+  "email": "Почта",
+  "password": "Пароль",
+  "subscribe": "Подписка",
+  "register": "Регистрация",
+  "login": "Войти",
+  "required_field": "Поле обязательное",
+  "invalid_email": "Неверный формат",
+  "short_password": "Минимум 8 символов"
+}

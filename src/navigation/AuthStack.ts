@@ -8,7 +8,7 @@ const AuthStack = createStackNavigator(
     [screenNames.SignUpScreen]: SignUpScreen,
   },
   {
-    initialRouteName: screenNames.SignUpScreen,
+    initialRouteName: screenNames.SignInScreen,
     headerMode: 'none',
   },
 );

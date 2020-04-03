@@ -9,7 +9,10 @@ const initialState: AuthReducerType = {
   isSignUpLoading: false,
 };
 
-export const authReducer = (state = initialState, action: AuthActionsType) => {
+export const authReducer = (
+  state = initialState,
+  action: AuthActionsType,
+): AuthReducerType => {
   switch (action.type) {
     case AuthActionsConstants.SIGN_IN_REQUEST:
       return {

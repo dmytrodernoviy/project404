@@ -1,0 +1,11 @@
+{
+  "empty": "",
+  "email": "Email",
+  "password": "Password",
+  "subscribe": "Subscribe",
+  "register": "Register",
+  "login": "Login",
+  "required_field": "Required field",
+  "invalid_email": "Invalid email",
+  "short_password": "Minimum 8 symbols"
+}

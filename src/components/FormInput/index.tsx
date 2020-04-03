@@ -52,7 +52,7 @@ const FormInput: React.FC<Props> = ({
         />
       </View>
       <View style={styles.errorView}>
-        {touched && <Text style={styles.error}>{error}</Text>}
+        {touched && <Text style={styles.error}>{error && error}</Text>}
       </View>
     </View>
   );

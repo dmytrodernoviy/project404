@@ -7,10 +7,14 @@ import { SignInValidationSchema } from '@src/utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { DispatcherService } from '@src/services';
 import { AuthSelectors } from '@src/redux/auth/selectors';
+import { translationString } from '@src/translations';
+import { translationsConstants } from '@src/constants';
+import { CurrentLanguageSelector } from '@src/redux/translation/selectors';
 
 const SignInForm: React.FC = () => {
   const dispatch = useDispatch();
   const isSignInLoading = useSelector(AuthSelectors.isSignInLoading);
+  const locale = useSelector(CurrentLanguageSelector.locale);
 
   return (
     <Formik
@@ -29,25 +33,31 @@ const SignInForm: React.FC = () => {
           <View>
             <FormInput
               type="email"
-              placeholder="Email"
+              placeholder={translationString(
+                translationsConstants.email,
+                locale,
+              )}
               value={values.email}
               onChangeText={handleChange('email')}
               onBlur={handleBlur('email')}
-              error={errors.email}
+              error={translationString(errors.email, locale)}
               touched={touched.email}
             />
             <FormInput
               type="password"
-              placeholder="Password"
+              placeholder={translationString(
+                translationsConstants.password,
+                locale,
+              )}
               value={values.password}
               onChangeText={handleChange('password')}
               onBlur={handleBlur('password')}
-              error={errors.password}
+              error={translationString(errors.password, locale)}
               touched={touched.password}
             />
           </View>
           <SubmitButton
-            label="Login"
+            label={translationString(translationsConstants.login, locale)}
             onPress={handleSubmit}
             isLoading={isSignInLoading}
           />
