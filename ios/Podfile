@@ -55,6 +55,8 @@ target 'Project404' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   target 'Project404Tests' do
     inherit! :complete
     # Pods for testing
