@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import { screenNames } from '@src/constants';
 import { SignInScreen, SignUpScreen } from '@src/features/authorization';
+import { screenNames } from '@src/constants';
 
 const AuthStack = createStackNavigator(
   {
