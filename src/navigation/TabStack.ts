@@ -9,6 +9,7 @@ const TabStack = createBottomTabNavigator(
     ss: DefaultScreen,
     sss: DefaultScreen,
     ssss123: DefaultScreen,
+    ssss121: DefaultScreen,
   },
   {
     tabBarComponent: TabBar,
