@@ -7,4 +7,6 @@ export const translationsConstants = {
   required_field: 'required_field',
   invalid_email: 'invalid_email',
   short_password: 'short_password',
+  search: 'search',
+  catalog: 'catalog',
 };

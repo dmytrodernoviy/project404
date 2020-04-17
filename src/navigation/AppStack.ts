@@ -9,7 +9,7 @@ const AppStack = createStackNavigator(
     [navigationStackNames.TabStack]: TabStack,
   },
   {
-    initialRouteName: navigationStackNames.TabStack,
+    initialRouteName: navigationStackNames.AuthStack,
     headerMode: 'none',
   },
 );

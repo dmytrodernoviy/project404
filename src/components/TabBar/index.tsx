@@ -10,8 +10,8 @@ import { colors } from '@src/constants';
 const TabBar: React.FC<NavigationParams> = ({ onTabPress, navigation }) => {
   const { routes, index: activeRouteIndex } = navigation.state;
   const routesImagesNames = [
-    'ios-nuclear',
-    'ios-nuclear',
+    'ios-aperture',
+    'ios-bug',
     'ios-home',
     'ios-nuclear',
     'ios-contact',

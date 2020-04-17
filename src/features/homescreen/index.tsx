@@ -1,0 +1,146 @@
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  Animated,
+  FlatList,
+  SafeAreaView,
+  TextInput,
+  View,
+} from 'react-native';
+import normalize from 'react-native-normalize';
+import debounce from 'lodash.debounce';
+import styles from './styles';
+import ProductsList from '@src/features/homescreen/productsList';
+import { ActivitySpinner, AnimatedScreenHeader } from '@src/components';
+import { useDispatch, useSelector } from 'react-redux';
+import { DispatcherService } from '@src/services';
+import { isIOSPlatform, screenHeight } from '@src/utils/helpers';
+import { ProductsSelectors } from '@src/redux/products/selectors';
+import { CurrentLanguageSelector } from '@src/redux/translation/selectors';
+import { translationString } from '@src/translations';
+import { translationsConstants } from '@src/constants';
+import SearchableModal from '@src/features/homescreen/searchableModal';
+
+const HomeScreen: React.FC = () => {
+  const minScroll = normalize(100, 'height');
+  const maxHeaderHeight = normalize(50, 'height');
+  const dispatch = useDispatch();
+
+  const [isFirstLoading, setIsFirstLoading] = useState(true);
+  const [isAnimationFinished, setIsAnimationFinished] = useState(false);
+
+  const searchBarTranslate = useRef(new Animated.Value(normalize(300))).current;
+  const hideAnimation = useRef(new Animated.Value(0)).current;
+  const searchInputRef = useRef<TextInput>(null);
+  const productListRef = useRef<FlatList>(null);
+
+  const products = useSelector(ProductsSelectors.products);
+  const locale = useSelector(CurrentLanguageSelector.locale);
+  const searchableData = useSelector(ProductsSelectors.searchableProducts);
+
+  useEffect(() => {
+    DispatcherService.getProducts({
+      dispatch,
+      callback: () => {
+        setIsFirstLoading(false);
+      },
+      page: 1,
+    });
+  }, [dispatch]);
+
+  const onChange = (searchQuery: string): void => {
+    searchQuery && DispatcherService.searchProducts({ dispatch, searchQuery });
+  };
+
+  const onSearchProduct = useCallback(debounce(onChange, 500), []);
+
+  const toggleSearchInputFocus = (callbackValue: boolean): void => {
+    const inputRef = searchInputRef.current;
+    if (!callbackValue) {
+      setTimeout(
+        () => {
+          inputRef && inputRef.blur();
+        },
+        isIOSPlatform() ? 300 : 0,
+      );
+      setTimeout(() => {
+        DispatcherService.clearSearchableProducts({ dispatch });
+        inputRef && inputRef.clear();
+      }, 500);
+    } else {
+      inputRef && inputRef.focus();
+    }
+  };
+
+  const toggleSearch = (toValue: number, callbackValue: boolean): void => {
+    toggleSearchInputFocus(callbackValue);
+    Animated.timing(searchBarTranslate, {
+      toValue,
+      duration: 500,
+      useNativeDriver: true,
+    }).start(() => {
+      setIsAnimationFinished(callbackValue);
+    });
+  };
+
+  const clampedScrollY = hideAnimation.interpolate({
+    inputRange: [0, minScroll + maxHeaderHeight],
+    outputRange: [0, maxHeaderHeight],
+    extrapolateLeft: 'clamp',
+  });
+
+  const minusScrollY = Animated.multiply(clampedScrollY, -1);
+
+  const translateHeaderY = Animated.diffClamp(
+    minusScrollY,
+    -maxHeaderHeight,
+    0,
+  );
+
+  const headerOpacity = translateHeaderY.interpolate({
+    inputRange: [-maxHeaderHeight, 0],
+    outputRange: [0, 1],
+  });
+
+  const titleTranslate = searchBarTranslate.interpolate({
+    inputRange: [0, normalize(300)],
+    outputRange: [-normalize(65, 'height'), 0],
+  });
+
+  const modalTranslate = searchBarTranslate.interpolate({
+    inputRange: [0, normalize(300)],
+    outputRange: [0, screenHeight],
+  });
+
+  return (
+    <SafeAreaView style={styles.container}>
+      {isIOSPlatform() && <View style={styles.topBlock} />}
+      <AnimatedScreenHeader
+        placeholder={translationString(translationsConstants.search, locale)}
+        searchBarTranslate={searchBarTranslate}
+        isAnimatedFinished={isAnimationFinished}
+        toggleSearch={toggleSearch}
+        searchInputRef={searchInputRef}
+        titleTranslate={titleTranslate}
+        height={translateHeaderY}
+        locale={locale}
+        opacity={headerOpacity}
+        onSearchProduct={onSearchProduct}
+      />
+      <SearchableModal translateY={modalTranslate} data={searchableData} />
+      {isFirstLoading ? (
+        <ActivitySpinner
+          isLoading={isFirstLoading}
+          spinnerSize={normalize(40)}
+        />
+      ) : (
+        <ProductsList
+          data={products}
+          hideAnimation={hideAnimation}
+          productListRef={productListRef}
+        />
+      )}
+    </SafeAreaView>
+  );
+};
+
+export default HomeScreen;

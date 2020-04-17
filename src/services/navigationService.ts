@@ -25,6 +25,20 @@ class Service {
       );
     }
   }
+
+  hideTabNavigator(): void {
+    if (this.navigator) {
+      console.log(this.navigator);
+      this.navigator.dispatch(
+        NavigationActions.setParams({
+          key: 'HomeScreen',
+          params: {
+            tabBarVisible: false,
+          },
+        }),
+      );
+    }
+  }
 }
 
 export const NavigationService = new Service();

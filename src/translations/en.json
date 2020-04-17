@@ -7,5 +7,7 @@
   "login": "Login",
   "required_field": "Required field",
   "invalid_email": "Invalid email",
-  "short_password": "Minimum 8 symbols"
+  "short_password": "Minimum 8 symbols",
+  "search": "Search",
+  "catalog": "Catalog"
 }

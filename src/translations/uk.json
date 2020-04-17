@@ -7,5 +7,7 @@
   "login": "Увійти",
   "required_field": "Поле обов'язкове",
   "invalid_email": "Невірний формат",
-  "short_password": "Мінімум 8 символів"
+  "short_password": "Мінімум 8 символів",
+  "search": "Пошук",
+  "catalog": "Каталог"
 }

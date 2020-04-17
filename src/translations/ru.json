@@ -7,5 +7,7 @@
   "login": "Войти",
   "required_field": "Поле обязательное",
   "invalid_email": "Неверный формат",
-  "short_password": "Минимум 8 символов"
+  "short_password": "Минимум 8 символов",
+  "search": "Поиск",
+  "catalog": "Каталог"
 }

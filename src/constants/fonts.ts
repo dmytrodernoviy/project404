@@ -17,6 +17,18 @@ const fonts = {
     fontFamily: 'Roboto-Medium',
     fontSize: normalize(16, 'height'),
   },
+  currentPrice: {
+    fontFamily: 'Roboto-Medium',
+    fontSize: normalize(26, 'height'),
+  },
+  productLabel: {
+    fontFamily: 'Roboto-Medium',
+    fontSize: normalize(12, 'height'),
+  },
+  searchableTitle: {
+    fontFamily: 'Roboto-Medium',
+    fontSize: normalize(16, 'height'),
+  },
 };
 
 export default fonts;
