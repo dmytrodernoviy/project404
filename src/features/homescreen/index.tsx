@@ -1,11 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  Animated,
-  FlatList,
-  SafeAreaView,
-  TextInput,
-  View,
-} from 'react-native';
+import { Animated, SafeAreaView, TextInput, View } from 'react-native';
 import normalize from 'react-native-normalize';
 import debounce from 'lodash.debounce';
 import styles from './styles';
@@ -21,7 +15,6 @@ import { translationsConstants } from '@src/constants';
 import SearchableModal from '@src/features/homescreen/searchableModal';
 
 const HomeScreen: React.FC = () => {
-  const minScroll = normalize(100, 'height');
   const maxHeaderHeight = normalize(50, 'height');
   const dispatch = useDispatch();
 
@@ -31,7 +24,6 @@ const HomeScreen: React.FC = () => {
   const searchBarTranslate = useRef(new Animated.Value(normalize(300))).current;
   const hideAnimation = useRef(new Animated.Value(0)).current;
   const searchInputRef = useRef<TextInput>(null);
-  const productListRef = useRef<FlatList>(null);
 
   const products = useSelector(ProductsSelectors.products);
   const locale = useSelector(CurrentLanguageSelector.locale);
@@ -82,21 +74,15 @@ const HomeScreen: React.FC = () => {
     });
   };
 
-  const clampedScrollY = hideAnimation.interpolate({
-    inputRange: [0, minScroll + maxHeaderHeight],
-    outputRange: [0, maxHeaderHeight],
-    extrapolateLeft: 'clamp',
-  });
+  const toggleHideHeader = (toValue: number): void => {
+    Animated.timing(hideAnimation, {
+      toValue,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+  };
 
-  const minusScrollY = Animated.multiply(clampedScrollY, -1);
-
-  const translateHeaderY = Animated.diffClamp(
-    minusScrollY,
-    -maxHeaderHeight,
-    0,
-  );
-
-  const headerOpacity = translateHeaderY.interpolate({
+  const headerOpacity = hideAnimation.interpolate({
     inputRange: [-maxHeaderHeight, 0],
     outputRange: [0, 1],
   });
@@ -121,7 +107,7 @@ const HomeScreen: React.FC = () => {
         toggleSearch={toggleSearch}
         searchInputRef={searchInputRef}
         titleTranslate={titleTranslate}
-        height={translateHeaderY}
+        height={hideAnimation}
         locale={locale}
         opacity={headerOpacity}
         onSearchProduct={onSearchProduct}
@@ -133,11 +119,7 @@ const HomeScreen: React.FC = () => {
           spinnerSize={normalize(40)}
         />
       ) : (
-        <ProductsList
-          data={products}
-          hideAnimation={hideAnimation}
-          productListRef={productListRef}
-        />
+        <ProductsList data={products} toggleHideHeader={toggleHideHeader} />
       )}
     </SafeAreaView>
   );

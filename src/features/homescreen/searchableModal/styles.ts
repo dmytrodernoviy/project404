@@ -11,7 +11,7 @@ export default StyleSheet.create({
     zIndex: 10,
     backgroundColor: !isIOSPlatform() ? colors.tabNavigatior : undefined,
     opacity: !isIOSPlatform() ? 0.975 : 1,
-    paddingTop: !isIOSPlatform() ? normalize(100, 'height') : 0,
+    paddingTop: normalize(90, 'height'),
     height: Dimensions.get('window').height,
     width: Dimensions.get('window').width,
   },
@@ -22,7 +22,7 @@ export default StyleSheet.create({
     left: 0,
     right: 0,
   },
-  flatlist: {
+  content: {
     paddingHorizontal: normalize(20),
   },
   bottomBlock: {

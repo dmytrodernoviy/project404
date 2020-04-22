@@ -1,8 +1,14 @@
-import React, { RefObject, useCallback, useState } from 'react';
-import { Animated, FlatList, RefreshControl, View } from 'react-native';
+import React, { useCallback, useRef } from 'react';
+import {
+  Animated,
+  NativeScrollEvent,
+  RefreshControl,
+  View,
+} from 'react-native';
 import normalize from 'react-native-normalize';
 import ProductsListItem from '@src/features/homescreen/productsListItem';
 import styles from './styles';
+import { Props } from './types';
 import { TProductItem } from '@src/constants/commonTypes';
 import { colors } from '@src/constants';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,35 +17,63 @@ import { DispatcherService } from '@src/services';
 import { ActivitySpinner } from '@src/components';
 import { isIOSPlatform } from '@src/utils/helpers';
 
-const ProductsList: React.FC<{
-  data: Array<TProductItem>;
-  hideAnimation: Animated.Value;
-  productListRef: RefObject<FlatList>;
-}> = ({ data, hideAnimation, productListRef }) => {
+const ProductsList: React.FC<Props> = ({ data, toggleHideHeader }) => {
   const dispatch = useDispatch();
-  const [currentPage, setCurrentPage] = useState(1);
   const isRefreshing = useSelector(ProductsSelectors.isRefreshing);
+  const isLoadingMore = useSelector(ProductsSelectors.isLoadingMore);
+  const dynamicValues = useRef({
+    scrollValue: normalize(65, 'height'),
+    scrollType: 'up',
+    page: 1,
+  });
 
   const setPagination = useCallback(
     ({ type }: { type: 'isRefreshing' | 'isLoadMore' }) => {
       if (type === 'isRefreshing') {
-        setCurrentPage(() => {
-          DispatcherService.getProducts({ dispatch, page: 1 });
-          return 1;
+        dynamicValues.current.page = 1;
+        DispatcherService.getProducts({
+          dispatch,
+          page: dynamicValues.current.page,
         });
       } else {
-        setCurrentPage((prevState) => {
-          DispatcherService.getProducts({ dispatch, page: prevState + 1 });
-          return prevState + 1;
+        dynamicValues.current.page += 1;
+        DispatcherService.getProducts({
+          dispatch,
+          page: dynamicValues.current.page,
         });
       }
     },
-    [dispatch, setCurrentPage],
+    [dispatch],
   );
+
+  const onScroll = ({
+    nativeEvent,
+  }: {
+    nativeEvent: NativeScrollEvent;
+  }): void => {
+    const {
+      contentOffset: { y },
+    } = nativeEvent;
+
+    const { scrollValue, scrollType } = dynamicValues.current;
+
+    if (y < normalize(65, 'height') || isLoadingMore) {
+      return;
+    }
+
+    if (y > scrollValue && scrollType === 'up') {
+      toggleHideHeader(-normalize(65, 'height'));
+      dynamicValues.current.scrollType = 'down';
+    } else if (y < scrollValue && scrollType === 'down') {
+      toggleHideHeader(0);
+      dynamicValues.current.scrollType = 'up';
+    }
+
+    dynamicValues.current.scrollValue = y;
+  };
 
   return (
     <Animated.FlatList
-      ref={productListRef}
       scrollEventThrottle={16}
       refreshing={isRefreshing}
       style={styles.container}
@@ -77,18 +111,7 @@ const ProductsList: React.FC<{
       showsVerticalScrollIndicator={false}
       numColumns={2}
       columnWrapperStyle={styles.columnWrapper}
-      onScroll={Animated.event(
-        [
-          {
-            nativeEvent: {
-              contentOffset: { y: hideAnimation },
-            },
-          },
-        ],
-        {
-          useNativeDriver: true,
-        },
-      )}
+      onScroll={onScroll}
     />
   );
 };
