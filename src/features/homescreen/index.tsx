@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DispatcherService } from '@src/services';
 import { isIOSPlatform, screenHeight } from '@src/utils/helpers';
 import { ProductsSelectors } from '@src/redux/products/selectors';
-import { CurrentLanguageSelector } from '@src/redux/translation/selectors';
+import { HelperSelector } from '@src/redux/helper/selectors';
 import { translationString } from '@src/translations';
 import { translationsConstants } from '@src/constants';
 import SearchableModal from '@src/features/homescreen/searchableModal';
@@ -26,7 +26,7 @@ const HomeScreen: React.FC = () => {
   const searchInputRef = useRef<TextInput>(null);
 
   const products = useSelector(ProductsSelectors.products);
-  const locale = useSelector(CurrentLanguageSelector.locale);
+  const locale = useSelector(HelperSelector.locale);
   const searchableData = useSelector(ProductsSelectors.searchableProducts);
 
   useEffect(() => {
@@ -77,7 +77,7 @@ const HomeScreen: React.FC = () => {
   const toggleHideHeader = (toValue: number): void => {
     Animated.timing(hideAnimation, {
       toValue,
-      duration: 300,
+      duration: 600,
       useNativeDriver: true,
     }).start();
   };

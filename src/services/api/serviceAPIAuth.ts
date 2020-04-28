@@ -13,6 +13,13 @@ class Service {
   signUp(formValues: SignUpFormValuesType) {
     return apiInstance.post(apiURLs.signUp, formValues);
   }
+
+  setTokenToHeaders(token: string): void {
+    apiInstance.setHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `JWT ${token}`,
+    });
+  }
 }
 
 export const serviceAPIAuth = new Service();

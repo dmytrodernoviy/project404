@@ -11,13 +11,13 @@ import { AuthSelectors } from '@src/redux/auth/selectors';
 import { SignUpFormValuesType } from '@src/redux/auth/types';
 import { Props } from '@src/features/authorization/signUp/components/signUpForm/types';
 import { translationString } from '@src/translations';
-import { CurrentLanguageSelector } from '@src/redux/translation/selectors';
+import { HelperSelector } from '@src/redux/helper/selectors';
 import { translationsConstants } from '@src/constants';
 
 const SignUpForm: React.FC<Props> = ({ setPopupVisible }) => {
   const dispatch = useDispatch();
   const isSignInLoading = useSelector(AuthSelectors.isSignUpLoading);
-  const locale = useSelector(CurrentLanguageSelector.locale);
+  const locale = useSelector(HelperSelector.locale);
 
   return (
     <Formik

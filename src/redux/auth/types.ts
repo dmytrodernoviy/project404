@@ -5,6 +5,7 @@ export const AuthActionsConstants = {
   SIGN_UP_REQUEST: 'SIGN_UP_REQUEST',
   SIGN_UP_SUCCESS: 'SIGN_UP_SUCCESS',
   SIGN_UP_FAILURE: 'SIGN_UP_FAILURE',
+  AUTO_SIGN_IN: 'AUTO_SIGN_IN',
 };
 
 // Types for actions
@@ -51,10 +52,15 @@ interface SignUpFailureAction {
   type: typeof AuthActionsConstants.SIGN_UP_FAILURE;
 }
 
+interface AutoSignInAction {
+  type: typeof AuthActionsConstants.AUTO_SIGN_IN;
+}
+
 export type AuthActionsType =
   | SignInRequestAction
   | SignInSuccessAction
   | SignInFailureAction
   | SignUpRequestAction
   | SignUpSuccessAction
-  | SignUpFailureAction;
+  | SignUpFailureAction
+  | AutoSignInAction;

@@ -3,7 +3,7 @@ import { baseAPIURL } from '@src/constants/apiConsts';
 
 export const apiInstance: ApisauceInstance = create({
   baseURL: baseAPIURL,
-  timeout: 10000,
+  timeout: 5000,
 });
 
 export const bodyRequest = {

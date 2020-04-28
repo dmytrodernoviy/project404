@@ -36,3 +36,7 @@ export const SignUpSuccess = (): AuthActionsType => ({
 export const SignUpFailure = (): AuthActionsType => ({
   type: AuthActionsConstants.SIGN_UP_FAILURE,
 });
+
+export const AutoSignIn = (): AuthActionsType => ({
+  type: AuthActionsConstants.AUTO_SIGN_IN,
+});

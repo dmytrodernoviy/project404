@@ -27,16 +27,4 @@ export default StyleSheet.create({
     shadowRadius: 10,
     elevation: 24,
   },
-  centerTab: {
-    position: 'relative',
-    bottom: normalize(2, 'height'),
-    width: normalize(60),
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: normalize(60),
-    borderWidth: normalize(5),
-    borderRadius: normalize(60),
-    backgroundColor: colors.tabNavigatior,
-    borderColor: colors.tabNavigatior,
-  },
 });

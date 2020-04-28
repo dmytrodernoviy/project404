@@ -9,12 +9,12 @@ import { DispatcherService } from '@src/services';
 import { AuthSelectors } from '@src/redux/auth/selectors';
 import { translationString } from '@src/translations';
 import { translationsConstants } from '@src/constants';
-import { CurrentLanguageSelector } from '@src/redux/translation/selectors';
+import { HelperSelector } from '@src/redux/helper/selectors';
 
 const SignInForm: React.FC = () => {
   const dispatch = useDispatch();
   const isSignInLoading = useSelector(AuthSelectors.isSignInLoading);
-  const locale = useSelector(CurrentLanguageSelector.locale);
+  const locale = useSelector(HelperSelector.locale);
 
   return (
     <Formik

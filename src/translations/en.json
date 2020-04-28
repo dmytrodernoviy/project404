@@ -9,5 +9,7 @@
   "invalid_email": "Invalid email",
   "short_password": "Minimum 8 symbols",
   "search": "Search",
-  "catalog": "Catalog"
+  "catalog": "Catalog",
+  "connection_lost": "Connection has been lost",
+  "something_went_wrong": "Something went wrong. Please, try again later."
 }

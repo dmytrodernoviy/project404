@@ -9,4 +9,6 @@ export const translationsConstants = {
   short_password: 'short_password',
   search: 'search',
   catalog: 'catalog',
+  connection_lost: 'connection_lost',
+  something_went_wrong: 'something_went_wrong',
 };

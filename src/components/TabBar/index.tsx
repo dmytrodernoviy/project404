@@ -27,13 +27,11 @@ const TabBar: React.FC<NavigationParams> = ({ onTabPress, navigation }) => {
             onPress={(): void => {
               onTabPress({ route });
             }}>
-            <View style={routeIndex === 2 && styles.centerTab}>
-              <Icon
-                name={routesImagesNames[routeIndex]}
-                size={routeIndex === 2 ? normalize(45) : normalize(35)}
-                color={isRouteActive ? colors.activeTab : colors.inactiveTab}
-              />
-            </View>
+            <Icon
+              name={routesImagesNames[routeIndex]}
+              size={routeIndex === 2 ? normalize(45) : normalize(35)}
+              color={isRouteActive ? colors.activeTab : colors.inactiveTab}
+            />
           </TouchableWithoutFeedback>
         );
       })}

@@ -99,7 +99,7 @@ const ProductsList: React.FC<Props> = ({ data, toggleHideHeader }) => {
       }
       ListFooterComponent={(): Element => (
         <ActivitySpinner
-          isLoading={true}
+          isLoading={isLoadingMore}
           containerStyle={styles.footer}
           spinnerSize={normalize(25)}
         />
