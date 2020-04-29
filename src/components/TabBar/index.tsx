@@ -7,6 +7,7 @@ import normalize from 'react-native-normalize';
 import styles from './styles';
 import { NavigationParams } from 'react-navigation';
 import { colors } from '@src/constants';
+import { isIOSPlatform } from '@src/utils/helpers';
 
 const TabBar: React.FC<NavigationParams> = ({ onTabPress, navigation }) => {
   const { routes, index: activeRouteIndex } = navigation.state;
@@ -19,24 +20,27 @@ const TabBar: React.FC<NavigationParams> = ({ onTabPress, navigation }) => {
   ];
 
   return (
-    <View style={styles.container}>
-      {routes.map((route: number, routeIndex: number) => {
-        const isRouteActive = routeIndex === activeRouteIndex;
-        return (
-          <TouchableWithoutFeedback
-            key={uuid()}
-            onPress={(): void => {
-              onTabPress({ route });
-            }}>
-            <Icon
-              name={routesImagesNames[routeIndex]}
-              size={routeIndex === 2 ? normalize(45) : normalize(35)}
-              color={isRouteActive ? colors.activeTab : colors.inactiveTab}
-            />
-          </TouchableWithoutFeedback>
-        );
-      })}
-    </View>
+    <>
+      <View style={styles.container}>
+        {routes.map((route: number, routeIndex: number) => {
+          const isRouteActive = routeIndex === activeRouteIndex;
+          return (
+            <TouchableWithoutFeedback
+              key={uuid()}
+              onPress={(): void => {
+                onTabPress({ route });
+              }}>
+              <Icon
+                name={routesImagesNames[routeIndex]}
+                size={routeIndex === 2 ? normalize(45) : normalize(35)}
+                color={isRouteActive ? colors.activeTab : colors.inactiveTab}
+              />
+            </TouchableWithoutFeedback>
+          );
+        })}
+      </View>
+      {isIOSPlatform() && <View style={styles.bottomBlock} />}
+    </>
   );
 };
 

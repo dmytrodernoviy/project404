@@ -7,8 +7,6 @@ import { isIOSPlatform } from '@src/utils/helpers';
 export default StyleSheet.create({
   container: {
     height: normalize(45, 'height'),
-    position: 'absolute',
-    zIndex: 0,
     bottom: isIOSPlatform() ? StaticSafeAreaInsets.safeAreaInsetsBottom : 0,
     width: '100%',
     flexDirection: 'row',
@@ -26,5 +24,12 @@ export default StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 10,
     elevation: 24,
+  },
+  bottomBlock: {
+    height: StaticSafeAreaInsets.safeAreaInsetsBottom,
+    width: '100%',
+    backgroundColor: colors.tabNavigatior,
+    position: 'absolute',
+    bottom: 0,
   },
 });
