@@ -7,24 +7,23 @@ import { useSelector } from 'react-redux';
 import { HelperSelector } from '@src/redux/helper/selectors';
 import { DispatcherService } from '@src/services';
 
-const SnackBarComponent: React.FC<{ snackBarTitle: string }> = ({
-  snackBarTitle,
-}) => {
+const SnackBarComponent: React.FC = () => {
   const locale = useSelector(HelperSelector.locale);
+  const { isVisible, title } = useSelector(HelperSelector.snackBarOptions);
   const snackBarDelay = 2000;
 
   useEffect(() => {
-    if (snackBarTitle) {
+    if (title) {
       setTimeout(() => {
-        DispatcherService.toggleSnackBar('');
+        DispatcherService.toggleSnackBar({ isVisible: false });
       }, snackBarDelay);
     }
-  }, [snackBarTitle]);
+  }, [title]);
 
   return (
     <SnackBar
-      visible={!!snackBarTitle}
-      textMessage={`${translationString(snackBarTitle, locale)}  \u26A0`}
+      visible={isVisible}
+      textMessage={`${translationString(title, locale)}  \u26A0`}
       position="top"
       backgroundColor={colors.error}
       messageStyle={styles.message}

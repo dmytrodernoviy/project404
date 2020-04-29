@@ -34,15 +34,6 @@ export interface TSignInResponse {
   msg: string;
 }
 
-export interface TApiResponseProblems {
-  CLIENT_ERROR: 'CLIENT_ERROR';
-  SERVER_ERROR: 'SERVER_ERROR';
-  TIMEOUT_ERROR: 'TIMEOUT_ERROR';
-  CONNECTION_ERROR: 'CONNECTION_ERROR';
-  NETWORK_ERROR: 'NETWORK_ERROR';
-  CANCEL_ERROR: 'CANCEL_ERROR';
-}
-
 export interface TApiResponseData {
   code: number;
   msg: string;

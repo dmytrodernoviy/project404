@@ -9,8 +9,12 @@ import {
 } from '@src/redux/products/actions';
 import { ApiResponse } from 'apisauce';
 import { TProductsResponse } from '@src/constants/commonTypes';
+import { AnyAction } from 'redux';
 
-export function* getProductsSaga({ callback = (): void => {}, page = 1 }) {
+export function* getProductsSaga({
+  callback = (): void => {},
+  page = 1,
+}: AnyAction) {
   try {
     const response: ApiResponse<TProductsResponse> = yield call(
       serviceAPIProducts.getProducts,
@@ -33,7 +37,7 @@ export function* getProductsSaga({ callback = (): void => {}, page = 1 }) {
   }
 }
 
-export function* searchProducts({ payload = '' }) {
+export function* searchProducts({ payload = '' }: AnyAction) {
   try {
     const response = yield call(serviceAPIProducts.searchProducts, {
       payload,

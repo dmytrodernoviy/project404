@@ -52,12 +52,4 @@ export default StyleSheet.create({
   closeIcon: {
     marginTop: normalize(1.5, 'height'),
   },
-  hideBlock: {
-    position: 'absolute',
-    zIndex: 60,
-    right: 0,
-    height: normalize(25, 'height'),
-    width: normalize(19, 'width'),
-    backgroundColor: colors.tabNavigatior,
-  },
 });

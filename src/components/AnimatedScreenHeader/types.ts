@@ -10,6 +10,7 @@ export interface Props {
   opacity: Animated.AnimatedInterpolation;
   titleTranslate: Animated.AnimatedInterpolation;
   searchBarTranslate: Animated.AnimatedInterpolation;
+  searchInputOpacity: Animated.AnimatedInterpolation;
   onSearchProduct: (query: string) => void;
   toggleSearch: (toValue: number, callbackValue: boolean) => void;
 }

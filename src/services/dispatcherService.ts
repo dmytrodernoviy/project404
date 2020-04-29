@@ -14,51 +14,40 @@ import {
   SearchProductRequest,
 } from '@src/redux/products/actions';
 import { store } from '@src/redux';
+import { SnackBarOptions } from '@src/redux/helper/types';
 
 export const DispatcherService = {
-  signIn: (dispatch: Function, payload: SignInFormValuesType): void => {
-    dispatch(SignInRequest(payload));
+  signIn: (payload: SignInFormValuesType): void => {
+    store.dispatch(SignInRequest(payload));
   },
-  signUp: (
-    dispatch: Function,
-    payload: SignUpFormValuesType,
-    callback: () => void,
-  ): void => {
-    dispatch(SignUpRequest(payload, callback));
+  signUp: (payload: SignUpFormValuesType, callback: () => void): void => {
+    store.dispatch(SignUpRequest(payload, callback));
   },
-  autoSignIn: (dispatch: Function): void => {
-    dispatch(AutoSignIn());
+  autoSignIn: (): void => {
+    store.dispatch(AutoSignIn());
   },
 
-  setAppLanguage: (dispatch: Function, payload: string): void => {
-    dispatch(SetAppLanguage(payload));
+  setAppLanguage: (payload: string): void => {
+    store.dispatch(SetAppLanguage(payload));
   },
 
   getProducts: ({
-    dispatch,
     callback,
     page,
   }: {
-    dispatch: Function;
     callback?: () => void;
     page: number;
   }): void => {
-    dispatch(GetProductsRequest({ callback, page }));
+    store.dispatch(GetProductsRequest({ callback, page }));
   },
-  searchProducts: ({
-    dispatch,
-    searchQuery = '',
-  }: {
-    dispatch: Function;
-    searchQuery: string;
-  }): void => {
-    dispatch(SearchProductRequest({ payload: searchQuery }));
+  searchProducts: ({ searchQuery = '' }: { searchQuery: string }): void => {
+    store.dispatch(SearchProductRequest({ payload: searchQuery }));
   },
-  clearSearchableProducts: ({ dispatch }: { dispatch: Function }): void => {
-    dispatch(ClearSearchableProducts());
+  clearSearchableProducts: (): void => {
+    store.dispatch(ClearSearchableProducts());
   },
 
-  toggleSnackBar: (title: string): void => {
-    store.dispatch(ToggleSnackBar(title));
+  toggleSnackBar: ({ isVisible, title }: SnackBarOptions): void => {
+    store.dispatch(ToggleSnackBar({ isVisible, title }));
   },
 };

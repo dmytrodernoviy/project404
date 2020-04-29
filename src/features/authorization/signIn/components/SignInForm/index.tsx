@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import { FormInput, SubmitButton } from '@src/components';
 import styles from '@src/features/authorization/signIn/components/SignInForm/styles';
 import { SignInValidationSchema } from '@src/utils';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { DispatcherService } from '@src/services';
 import { AuthSelectors } from '@src/redux/auth/selectors';
 import { translationString } from '@src/translations';
@@ -12,7 +12,6 @@ import { translationsConstants } from '@src/constants';
 import { HelperSelector } from '@src/redux/helper/selectors';
 
 const SignInForm: React.FC = () => {
-  const dispatch = useDispatch();
   const isSignInLoading = useSelector(AuthSelectors.isSignInLoading);
   const locale = useSelector(HelperSelector.locale);
 
@@ -20,7 +19,7 @@ const SignInForm: React.FC = () => {
     <Formik
       initialValues={{ email: '', password: '' }}
       validationSchema={SignInValidationSchema}
-      onSubmit={(values): void => DispatcherService.signIn(dispatch, values)}>
+      onSubmit={(values): void => DispatcherService.signIn(values)}>
       {({
         handleChange,
         handleBlur,

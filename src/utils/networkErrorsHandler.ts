@@ -9,13 +9,17 @@ export const networkErrorsHandler = (
 ): void => {
   switch (error.problem) {
     case 'NETWORK_ERROR':
-      DispatcherService.toggleSnackBar(translationsConstants.connection_lost);
+      DispatcherService.toggleSnackBar({
+        isVisible: true,
+        title: translationsConstants.connection_lost,
+      });
       break;
     case 'TIMEOUT_ERROR':
     case 'CONNECTION_ERROR':
-      DispatcherService.toggleSnackBar(
-        translationsConstants.something_went_wrong,
-      );
+      DispatcherService.toggleSnackBar({
+        isVisible: true,
+        title: translationsConstants.something_went_wrong,
+      });
       break;
     case 'CLIENT_ERROR':
       const msg = error.data ? error.data.msg : '';

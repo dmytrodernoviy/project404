@@ -5,7 +5,7 @@ import debounce from 'lodash.debounce';
 import styles from './styles';
 import ProductsList from '@src/features/homescreen/productsList';
 import { ActivitySpinner, AnimatedScreenHeader } from '@src/components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { DispatcherService } from '@src/services';
 import { isIOSPlatform, screenHeight } from '@src/utils/helpers';
 import { ProductsSelectors } from '@src/redux/products/selectors';
@@ -16,7 +16,6 @@ import SearchableModal from '@src/features/homescreen/searchableModal';
 
 const HomeScreen: React.FC = () => {
   const maxHeaderHeight = normalize(50, 'height');
-  const dispatch = useDispatch();
 
   const [isFirstLoading, setIsFirstLoading] = useState(true);
   const [isAnimationFinished, setIsAnimationFinished] = useState(false);
@@ -31,16 +30,15 @@ const HomeScreen: React.FC = () => {
 
   useEffect(() => {
     DispatcherService.getProducts({
-      dispatch,
       callback: () => {
         setIsFirstLoading(false);
       },
       page: 1,
     });
-  }, [dispatch]);
+  }, []);
 
   const onChange = (searchQuery: string): void => {
-    searchQuery && DispatcherService.searchProducts({ dispatch, searchQuery });
+    searchQuery && DispatcherService.searchProducts({ searchQuery });
   };
 
   const onSearchProduct = useCallback(debounce(onChange, 500), []);
@@ -55,11 +53,13 @@ const HomeScreen: React.FC = () => {
         isIOSPlatform() ? 300 : 0,
       );
       setTimeout(() => {
-        DispatcherService.clearSearchableProducts({ dispatch });
+        DispatcherService.clearSearchableProducts();
         inputRef && inputRef.clear();
       }, 500);
     } else {
-      inputRef && inputRef.focus();
+      setTimeout(() => {
+        inputRef && inputRef.focus();
+      }, 550);
     }
   };
 
@@ -97,6 +97,11 @@ const HomeScreen: React.FC = () => {
     outputRange: [0, screenHeight],
   });
 
+  const searchInputOpacity = searchBarTranslate.interpolate({
+    inputRange: [0, normalize(300)],
+    outputRange: [1, 0],
+  });
+
   return (
     <SafeAreaView style={styles.container}>
       {isIOSPlatform() && <View style={styles.topBlock} />}
@@ -111,6 +116,7 @@ const HomeScreen: React.FC = () => {
         locale={locale}
         opacity={headerOpacity}
         onSearchProduct={onSearchProduct}
+        searchInputOpacity={searchInputOpacity}
       />
       <SearchableModal translateY={modalTranslate} data={searchableData} />
       {isFirstLoading ? (

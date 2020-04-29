@@ -6,7 +6,7 @@ import {
 
 const initialState: HelperReducerType = {
   currentLanguage: 'uk',
-  snackBarTitle: '',
+  snackBarOptions: { isVisible: false, title: '' },
 };
 
 export const helperReducer = (
@@ -22,7 +22,7 @@ export const helperReducer = (
     case HelperConsts.SHOW_SNACKBAR:
       return {
         ...state,
-        snackBarTitle: action.payload,
+        snackBarOptions: action.payload,
       };
     default:
       return state;

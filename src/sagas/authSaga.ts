@@ -15,13 +15,14 @@ import {
 import { ApiResponse } from 'apisauce';
 import { TSignInResponse } from '@src/constants/commonTypes';
 import { navigationStackNames } from '@src/constants';
+import { AnyAction } from 'redux';
 
 export function* signInSaga({
   payload = {
     email: '',
     password: '',
   },
-}) {
+}: AnyAction) {
   try {
     const response: ApiResponse<TSignInResponse> = yield call(
       serviceAPIAuth.signIn,
@@ -50,7 +51,7 @@ export function* signUpSaga({
     subscribe: false,
   },
   callback = (): void => {},
-}) {
+}: AnyAction) {
   try {
     const response = yield call(serviceAPIAuth.signUp, payload);
     if (response.ok) {

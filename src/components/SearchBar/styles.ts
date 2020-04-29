@@ -11,7 +11,9 @@ export default StyleSheet.create({
   input: {
     ...fonts.main_18,
     color: colors.inactiveTab,
-    borderLeftColor: colors.inactiveTab,
+    width: '80%',
+  },
+  textInputContainer: {
     width: '80%',
   },
   searchIcon: {

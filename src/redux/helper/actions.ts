@@ -2,6 +2,7 @@ import {
   SetAppLanguageAction,
   ToggleSnackBarAction,
   HelperConsts,
+  SnackBarOptions,
 } from '@src/redux/helper/types';
 
 export const SetAppLanguage = (payload: string): SetAppLanguageAction => ({
@@ -9,7 +10,10 @@ export const SetAppLanguage = (payload: string): SetAppLanguageAction => ({
   payload,
 });
 
-export const ToggleSnackBar = (payload: string): ToggleSnackBarAction => ({
+export const ToggleSnackBar = ({
+  isVisible,
+  title,
+}: SnackBarOptions): ToggleSnackBarAction => ({
   type: HelperConsts.SHOW_SNACKBAR,
-  payload,
+  payload: { isVisible, title },
 });

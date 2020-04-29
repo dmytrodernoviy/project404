@@ -5,7 +5,7 @@ export const HelperConsts = {
 
 export interface HelperReducerType {
   currentLanguage: string;
-  snackBarTitle: string;
+  snackBarOptions: SnackBarOptions;
 }
 
 export interface SetAppLanguageAction {
@@ -13,9 +13,14 @@ export interface SetAppLanguageAction {
   payload: string;
 }
 
+export interface SnackBarOptions {
+  isVisible: boolean;
+  title?: string;
+}
+
 export interface ToggleSnackBarAction {
   type: typeof HelperConsts.SHOW_SNACKBAR;
-  payload: string;
+  payload: SnackBarOptions;
 }
 
 export type HelperActionsType = SetAppLanguageAction | ToggleSnackBarAction;

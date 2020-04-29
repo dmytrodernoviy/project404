@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableWithoutFeedback, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+// @ts-ignore
 import uuid from 'react-uuid';
 import normalize from 'react-native-normalize';
 import styles from './styles';

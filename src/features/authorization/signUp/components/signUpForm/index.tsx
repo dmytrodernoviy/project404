@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Formik } from 'formik';
 import { FormInput, SubmitButton } from '@src/components';
 import { SignUpValidationSchema } from '@src/utils';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { DispatcherService } from '@src/services';
 import SubscribeSwitch from '@src/features/authorization/signUp/components/SubscribeSwitch';
 import styles from '@src/features/authorization/signUp/components/signUpForm/styles';
@@ -15,7 +15,6 @@ import { HelperSelector } from '@src/redux/helper/selectors';
 import { translationsConstants } from '@src/constants';
 
 const SignUpForm: React.FC<Props> = ({ setPopupVisible }) => {
-  const dispatch = useDispatch();
   const isSignInLoading = useSelector(AuthSelectors.isSignUpLoading);
   const locale = useSelector(HelperSelector.locale);
 
@@ -24,7 +23,7 @@ const SignUpForm: React.FC<Props> = ({ setPopupVisible }) => {
       initialValues={{ email: '', password: '', subscribe: false }}
       validationSchema={SignUpValidationSchema}
       onSubmit={(values: SignUpFormValuesType): void =>
-        DispatcherService.signUp(dispatch, values, setPopupVisible)
+        DispatcherService.signUp(values, setPopupVisible)
       }>
       {({
         handleChange,

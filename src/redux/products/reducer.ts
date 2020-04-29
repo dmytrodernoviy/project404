@@ -18,7 +18,7 @@ export const productsReducer = (
 ): ProductsReducerType => {
   switch (action.type) {
     case GetProductsConstants.GET_PRODUCTS_REQUEST:
-      if (action.page === 1) {
+      if ('page' in action && action.page === 1) {
         return {
           ...state,
           isRefreshing: true,
@@ -30,11 +30,11 @@ export const productsReducer = (
         };
       }
     case GetProductsConstants.GET_PRODUCTS_SUCCESS:
-      if (action.page === 1) {
+      if ('page' in action && action.page === 1) {
         return {
           ...state,
           isRefreshing: false,
-          products: action.payload,
+          products: 'payload' in action ? action.payload : [],
         };
       } else {
         return {

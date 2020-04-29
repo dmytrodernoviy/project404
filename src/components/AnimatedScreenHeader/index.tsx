@@ -1,16 +1,17 @@
 import React from 'react';
-import { Animated, Text, TouchableOpacity, View } from 'react-native';
+import { Animated, Text, TouchableOpacity } from 'react-native';
 import normalize from 'react-native-normalize';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
-import { SearchBar } from '@src/components';
 import { Props } from './types';
 import { translationString } from '@src/translations';
 import { colors, translationsConstants } from '@src/constants';
+import SearchBar from '@src/components/SearchBar';
 
 const AnimatedScreenHeader: React.FC<Props> = ({
   placeholder,
   locale,
+  searchInputOpacity,
   searchInputRef,
   titleTranslate,
   searchBarTranslate,
@@ -44,6 +45,7 @@ const AnimatedScreenHeader: React.FC<Props> = ({
         <SearchBar
           placeholder={placeholder}
           onChangeText={onSearchProduct}
+          searchInputOpacity={searchInputOpacity}
           onAnimationStart={toggleSearch}
           isAnimatedFinished={isAnimatedFinished}
           searchInputRef={searchInputRef}
@@ -60,7 +62,6 @@ const AnimatedScreenHeader: React.FC<Props> = ({
           />
         </TouchableOpacity>
       </Animated.View>
-      <View style={styles.hideBlock} />
     </Animated.View>
   );
 };
