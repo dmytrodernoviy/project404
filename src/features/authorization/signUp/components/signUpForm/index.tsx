@@ -4,27 +4,26 @@ import { Formik } from 'formik';
 import { FormInput, SubmitButton } from '@src/components';
 import { SignUpValidationSchema } from '@src/utils';
 import { useSelector } from 'react-redux';
-import { DispatcherService } from '@src/services';
 import SubscribeSwitch from '@src/features/authorization/signUp/components/SubscribeSwitch';
 import styles from '@src/features/authorization/signUp/components/signUpForm/styles';
-import { AuthSelectors } from '@src/redux/auth/selectors';
-import { SignUpFormValuesType } from '@src/redux/auth/types';
-import { Props } from '@src/features/authorization/signUp/components/signUpForm/types';
 import { translationString } from '@src/translations';
 import { HelperSelector } from '@src/redux/helper/selectors';
 import { translationsConstants } from '@src/constants';
+import { useAnimationButtonAndRequest } from '@src/features/authorization/hooks';
 
-const SignUpForm: React.FC<Props> = ({ setPopupVisible }) => {
-  const isSignInLoading = useSelector(AuthSelectors.isSignUpLoading);
+const SignUpForm: React.FC = () => {
   const locale = useSelector(HelperSelector.locale);
+  const {
+    scaleButtonValue,
+    scaleLoaderValue,
+    onSubmit,
+  } = useAnimationButtonAndRequest('signUp');
 
   return (
     <Formik
       initialValues={{ email: '', password: '', subscribe: false }}
       validationSchema={SignUpValidationSchema}
-      onSubmit={(values: SignUpFormValuesType): void =>
-        DispatcherService.signUp(values, setPopupVisible)
-      }>
+      onSubmit={onSubmit}>
       {({
         handleChange,
         handleBlur,
@@ -64,9 +63,10 @@ const SignUpForm: React.FC<Props> = ({ setPopupVisible }) => {
           <SubscribeSwitch handleSwitch={setFieldValue} locale={locale} />
           <SubmitButton
             label={translationString(translationsConstants.register, locale)}
-            onPress={handleSubmit}
-            isLoading={isSignInLoading}
-            positionRight
+            onSubmitPress={handleSubmit}
+            scaleButtonValue={scaleButtonValue}
+            scaleLoaderValue={scaleLoaderValue}
+            positionRight={true}
           />
         </View>
       )}

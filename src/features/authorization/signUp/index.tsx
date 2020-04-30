@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import {
   Image,
   SafeAreaView,
@@ -12,22 +12,8 @@ import { images, screenNames } from '@src/constants';
 import NextScreenButton from '@src/features/authorization/signIn/components/NextScreenButton';
 import SignUpForm from '@src/features/authorization/signUp/components/signUpForm';
 import { AnimatedPopup } from '@src/components';
-import { NavigationService } from '@src/services';
 
 const SignUpScreen: React.FC = () => {
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
-
-  const onPopupButtonPress = useCallback(() => {
-    setIsPopupVisible((prevState) => {
-      NavigationService.navigate(screenNames.SignInScreen);
-      return !prevState;
-    });
-  }, []);
-
-  const setPopupVisible = useCallback(() => {
-    setIsPopupVisible((prevState) => !prevState);
-  }, []);
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.dismissContainer}>
@@ -46,15 +32,12 @@ const SignUpScreen: React.FC = () => {
                 style={styles.logo}
                 resizeMode="contain"
               />
-              <SignUpForm setPopupVisible={setPopupVisible} />
+              <SignUpForm />
             </KeyboardAvoidingView>
             <NextScreenButton routeName={screenNames.SignInScreen} />
           </View>
         </SafeAreaView>
-        <AnimatedPopup
-          isVisible={isPopupVisible}
-          onButtonPress={onPopupButtonPress}
-        />
+        <AnimatedPopup />
       </View>
     </TouchableWithoutFeedback>
   );

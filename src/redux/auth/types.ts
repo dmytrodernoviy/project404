@@ -6,6 +6,8 @@ export const AuthActionsConstants = {
   SIGN_UP_SUCCESS: 'SIGN_UP_SUCCESS',
   SIGN_UP_FAILURE: 'SIGN_UP_FAILURE',
   AUTO_SIGN_IN: 'AUTO_SIGN_IN',
+  TOGGLE_AFTER_REGISTER_POPUP: 'TOGGLE_AFTER_REGISTER_POPUP',
+  IS_ANIMATION_LOGIN_LAYOUT: 'IS_ANIMATION_LOGIN_LAYOUT',
 };
 
 // Types for actions
@@ -22,12 +24,15 @@ export interface SignUpFormValuesType extends SignInFormValuesType {
 export interface AuthReducerType {
   isSignInLoading: boolean;
   isSignUpLoading: boolean;
+  isAfterRegisterPopupVisible: boolean;
+  isAnimationLoginLayout: boolean;
 }
 
 // Types for actions creators
 interface SignInRequestAction {
   type: typeof AuthActionsConstants.SIGN_IN_REQUEST;
   payload: SignInFormValuesType;
+  callback: () => void;
 }
 
 interface SignInSuccessAction {
@@ -56,6 +61,16 @@ interface AutoSignInAction {
   type: typeof AuthActionsConstants.AUTO_SIGN_IN;
 }
 
+interface ToggleAfterRegisterPopupAction {
+  type: typeof AuthActionsConstants.TOGGLE_AFTER_REGISTER_POPUP;
+  payload: boolean;
+}
+
+interface IsAnimationLoginLayoutAction {
+  type: typeof AuthActionsConstants.IS_ANIMATION_LOGIN_LAYOUT;
+  payload: boolean;
+}
+
 export type AuthActionsType =
   | SignInRequestAction
   | SignInSuccessAction
@@ -63,4 +78,6 @@ export type AuthActionsType =
   | SignUpRequestAction
   | SignUpSuccessAction
   | SignUpFailureAction
-  | AutoSignInAction;
+  | AutoSignInAction
+  | ToggleAfterRegisterPopupAction
+  | IsAnimationLoginLayoutAction;

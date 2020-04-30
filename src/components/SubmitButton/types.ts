@@ -1,6 +1,9 @@
+import { Animated } from 'react-native';
+
 export interface Props {
   label: string;
-  isLoading: boolean;
   positionRight?: boolean;
-  onPress: () => void;
+  scaleButtonValue: Animated.Value;
+  scaleLoaderValue: Animated.Value;
+  onSubmitPress: () => void;
 }

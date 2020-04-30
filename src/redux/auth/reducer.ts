@@ -7,6 +7,8 @@ import {
 const initialState: AuthReducerType = {
   isSignInLoading: false,
   isSignUpLoading: false,
+  isAfterRegisterPopupVisible: false,
+  isAnimationLoginLayout: false,
 };
 
 export const authReducer = (
@@ -43,6 +45,16 @@ export const authReducer = (
       return {
         ...state,
         isSignUpLoading: false,
+      };
+    case AuthActionsConstants.TOGGLE_AFTER_REGISTER_POPUP:
+      return {
+        ...state,
+        isAfterRegisterPopupVisible: action.payload,
+      };
+    case AuthActionsConstants.IS_ANIMATION_LOGIN_LAYOUT:
+      return {
+        ...state,
+        isAnimationLoginLayout: action.payload,
       };
     default:
       return state;

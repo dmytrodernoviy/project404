@@ -7,9 +7,11 @@ import {
 
 export const SignInRequest = (
   payload: SignInFormValuesType,
+  callback: () => void,
 ): AuthActionsType => ({
   type: AuthActionsConstants.SIGN_IN_REQUEST,
   payload,
+  callback,
 });
 
 export const SignInSuccess = (): AuthActionsType => ({
@@ -39,4 +41,16 @@ export const SignUpFailure = (): AuthActionsType => ({
 
 export const AutoSignIn = (): AuthActionsType => ({
   type: AuthActionsConstants.AUTO_SIGN_IN,
+});
+
+export const ToggleAfterRegisterPopup = (
+  payload: boolean,
+): AuthActionsType => ({
+  type: AuthActionsConstants.TOGGLE_AFTER_REGISTER_POPUP,
+  payload,
+});
+
+export const IsAnimationLoginLayout = (payload: boolean): AuthActionsType => ({
+  type: AuthActionsConstants.IS_ANIMATION_LOGIN_LAYOUT,
+  payload,
 });

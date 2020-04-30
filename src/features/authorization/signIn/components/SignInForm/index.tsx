@@ -5,21 +5,24 @@ import { FormInput, SubmitButton } from '@src/components';
 import styles from '@src/features/authorization/signIn/components/SignInForm/styles';
 import { SignInValidationSchema } from '@src/utils';
 import { useSelector } from 'react-redux';
-import { DispatcherService } from '@src/services';
-import { AuthSelectors } from '@src/redux/auth/selectors';
 import { translationString } from '@src/translations';
 import { translationsConstants } from '@src/constants';
 import { HelperSelector } from '@src/redux/helper/selectors';
+import { useAnimationButtonAndRequest } from '@src/features/authorization/hooks';
 
 const SignInForm: React.FC = () => {
-  const isSignInLoading = useSelector(AuthSelectors.isSignInLoading);
   const locale = useSelector(HelperSelector.locale);
+  const {
+    scaleButtonValue,
+    scaleLoaderValue,
+    onSubmit,
+  } = useAnimationButtonAndRequest('signIn');
 
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
       validationSchema={SignInValidationSchema}
-      onSubmit={(values): void => DispatcherService.signIn(values)}>
+      onSubmit={onSubmit}>
       {({
         handleChange,
         handleBlur,
@@ -57,8 +60,9 @@ const SignInForm: React.FC = () => {
           </View>
           <SubmitButton
             label={translationString(translationsConstants.login, locale)}
-            onPress={handleSubmit}
-            isLoading={isSignInLoading}
+            onSubmitPress={handleSubmit}
+            scaleButtonValue={scaleButtonValue}
+            scaleLoaderValue={scaleLoaderValue}
           />
         </View>
       )}

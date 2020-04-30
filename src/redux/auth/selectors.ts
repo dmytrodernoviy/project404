@@ -5,4 +5,8 @@ export const AuthSelectors = {
     state.auth.isSignInLoading,
   isSignUpLoading: (state: RootStateType): boolean =>
     state.auth.isSignUpLoading,
+  isAfterRegisterPopupVisible: (state: RootStateType): boolean =>
+    state.auth.isAfterRegisterPopupVisible,
+  isAnimationLoginLayout: (state: RootStateType): boolean =>
+    state.auth.isAnimationLoginLayout,
 };

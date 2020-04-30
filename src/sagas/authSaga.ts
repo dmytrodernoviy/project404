@@ -7,10 +7,12 @@ import {
 import SplashScreen from 'react-native-splash-screen';
 import { consoleLog, networkErrorsHandler } from '@src/utils';
 import {
+  IsAnimationLoginLayout,
   SignInFailure,
   SignInSuccess,
   SignUpFailure,
   SignUpSuccess,
+  ToggleAfterRegisterPopup,
 } from '@src/redux/auth/actions';
 import { ApiResponse } from 'apisauce';
 import { TSignInResponse } from '@src/constants/commonTypes';
@@ -22,6 +24,7 @@ export function* signInSaga({
     email: '',
     password: '',
   },
+  callback = (): void => {},
 }: AnyAction) {
   try {
     const response: ApiResponse<TSignInResponse> = yield call(
@@ -29,17 +32,18 @@ export function* signInSaga({
       payload,
     );
     if (response.ok && response.data) {
+      yield put(IsAnimationLoginLayout(true));
       const { token } = response.data;
       yield put(SignInSuccess());
-      NavigationService.navigate(navigationStackNames.TabStack);
       yield call(serviceAPIAuth.setTokenToHeaders, token);
-      yield call(SecureStorageService.setToken, token);
+      // yield call(SecureStorageService.setToken, token);
     } else {
       throw response;
     }
   } catch (e) {
     yield put(SignInFailure());
     networkErrorsHandler(e);
+    callback();
     consoleLog('authSagaError', e);
   }
 }
@@ -56,6 +60,7 @@ export function* signUpSaga({
     const response = yield call(serviceAPIAuth.signUp, payload);
     if (response.ok) {
       yield put(SignUpSuccess());
+      yield put(ToggleAfterRegisterPopup(true));
       callback();
     } else {
       throw response;
@@ -63,6 +68,7 @@ export function* signUpSaga({
   } catch (e) {
     yield put(SignUpFailure());
     networkErrorsHandler(e);
+    callback();
     consoleLog('authSagaError', e);
   }
 }

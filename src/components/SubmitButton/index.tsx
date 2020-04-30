@@ -1,25 +1,44 @@
-import React from 'react';
-import { Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  Text,
+  ActivityIndicator,
+  Animated,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import { Props } from '@src/components/SubmitButton/types';
 import styles from '@src/components/SubmitButton/styles';
 import { colors } from '@src/constants';
 
 const SubmitButton: React.FC<Props> = ({
   label,
-  onPress,
-  isLoading,
+  onSubmitPress,
+  scaleLoaderValue,
+  scaleButtonValue,
   positionRight,
 }) => {
   return (
-    <TouchableOpacity
-      style={[styles.container, positionRight && styles.positionRight]}
-      onPress={onPress}>
-      {isLoading ? (
-        <ActivityIndicator size={'small'} color={colors.authAdd} />
-      ) : (
-        <Text style={styles.label}>{label}</Text>
-      )}
-    </TouchableOpacity>
+    <View
+      style={[styles.buttonContainer, positionRight && styles.positionRight]}>
+      <TouchableOpacity onPress={onSubmitPress}>
+        <View>
+          <Animated.View
+            style={{
+              ...styles.container,
+              transform: [{ scale: scaleButtonValue }],
+            }}>
+            <Text style={styles.label}>{label}</Text>
+          </Animated.View>
+          <Animated.View
+            style={{
+              ...styles.loader,
+              transform: [{ scale: scaleLoaderValue }],
+            }}>
+            <ActivityIndicator color={colors.authAdd} />
+          </Animated.View>
+        </View>
+      </TouchableOpacity>
+    </View>
   );
 };
 

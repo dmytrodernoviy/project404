@@ -7,6 +7,7 @@ import ActivitySpinner from '@src/components/ActivitySpinner';
 import SearchBar from '@src/components/SearchBar';
 import AnimatedScreenHeader from '@src/components/AnimatedScreenHeader';
 import SnackBarComponent from '@src/components/SnackBar';
+import LoginAnimatedLayout from '@src/components/LoginAnimatedLayout';
 
 export {
   FormInput,
@@ -18,4 +19,5 @@ export {
   SearchBar,
   AnimatedScreenHeader,
   SnackBarComponent,
+  LoginAnimatedLayout,
 };

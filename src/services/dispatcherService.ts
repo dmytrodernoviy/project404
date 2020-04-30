@@ -4,8 +4,10 @@ import {
 } from '@src/redux/auth/types';
 import {
   AutoSignIn,
+  IsAnimationLoginLayout,
   SignInRequest,
   SignUpRequest,
+  ToggleAfterRegisterPopup,
 } from '@src/redux/auth/actions';
 import { SetAppLanguage, ToggleSnackBar } from '@src/redux/helper/actions';
 import {
@@ -17,14 +19,32 @@ import { store } from '@src/redux';
 import { SnackBarOptions } from '@src/redux/helper/types';
 
 export const DispatcherService = {
-  signIn: (payload: SignInFormValuesType): void => {
-    store.dispatch(SignInRequest(payload));
+  signIn: ({
+    payload,
+    callback,
+  }: {
+    payload: SignInFormValuesType;
+    callback: () => void;
+  }): void => {
+    store.dispatch(SignInRequest(payload, callback));
   },
-  signUp: (payload: SignUpFormValuesType, callback: () => void): void => {
+  signUp: ({
+    payload,
+    callback,
+  }: {
+    payload: SignUpFormValuesType;
+    callback: () => void;
+  }): void => {
     store.dispatch(SignUpRequest(payload, callback));
   },
   autoSignIn: (): void => {
     store.dispatch(AutoSignIn());
+  },
+  toggleAfterRegisterPopup: (payload: boolean): void => {
+    store.dispatch(ToggleAfterRegisterPopup(payload));
+  },
+  isAnimationLoginLayout: (payload: boolean): void => {
+    store.dispatch(IsAnimationLoginLayout(payload));
   },
 
   setAppLanguage: (payload: string): void => {

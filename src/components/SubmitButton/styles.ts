@@ -8,9 +8,8 @@ export default StyleSheet.create({
     backgroundColor: colors.authMain,
     borderRadius: normalize(25, 'height'),
     height: normalize(50, 'height'),
-    marginTop: normalize(10, 'height'),
     justifyContent: 'center',
-    width: '60%',
+    width: normalize(200),
   },
   positionRight: {
     alignSelf: 'flex-end',
@@ -18,5 +17,19 @@ export default StyleSheet.create({
   label: {
     ...fonts.submit,
     color: colors.authAdd,
+  },
+  buttonContainer: {
+    height: normalize(50, 'height'),
+    width: normalize(200),
+    marginTop: normalize(5, 'height'),
+  },
+  loader: {
+    width: normalize(50, 'height'),
+    height: normalize(50, 'height'),
+    borderRadius: normalize(25, 'height'),
+    position: 'absolute',
+    left: normalize(100) - normalize(25, 'height'),
+    justifyContent: 'center',
+    backgroundColor: colors.authMain,
   },
 });
