@@ -1,5 +1,5 @@
-import React from 'react';
-import { TouchableWithoutFeedback, View } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { TouchableWithoutFeedback, View, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 // @ts-ignore
 import uuid from 'react-uuid';
@@ -11,6 +11,7 @@ import { isIOSPlatform } from '@src/utils/helpers';
 
 const TabBar: React.FC<NavigationParams> = ({ onTabPress, navigation }) => {
   const { routes, index: activeRouteIndex } = navigation.state;
+  const opacity = useRef(new Animated.Value(0)).current;
   const routesImagesNames = [
     'ios-aperture',
     'ios-bug',
@@ -19,8 +20,16 @@ const TabBar: React.FC<NavigationParams> = ({ onTabPress, navigation }) => {
     'ios-contact',
   ];
 
+  useEffect(() => {
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+  }, [opacity]);
+
   return (
-    <>
+    <View>
       <View style={styles.container}>
         {routes.map((route: number, routeIndex: number) => {
           const isRouteActive = routeIndex === activeRouteIndex;
@@ -40,7 +49,7 @@ const TabBar: React.FC<NavigationParams> = ({ onTabPress, navigation }) => {
         })}
       </View>
       {isIOSPlatform() && <View style={styles.bottomBlock} />}
-    </>
+    </View>
   );
 };
 

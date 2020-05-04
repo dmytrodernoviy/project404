@@ -36,7 +36,7 @@ export function* signInSaga({
       const { token } = response.data;
       yield put(SignInSuccess());
       yield call(serviceAPIAuth.setTokenToHeaders, token);
-      // yield call(SecureStorageService.setToken, token);
+      yield call(SecureStorageService.setToken, token);
     } else {
       throw response;
     }

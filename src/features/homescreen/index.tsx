@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Animated, SafeAreaView, TextInput, View } from 'react-native';
+import { Animated, SafeAreaView, TextInput, View, Modal } from 'react-native';
 import normalize from 'react-native-normalize';
 import debounce from 'lodash.debounce';
 import styles from './styles';
@@ -13,6 +13,7 @@ import { HelperSelector } from '@src/redux/helper/selectors';
 import { translationString } from '@src/translations';
 import { translationsConstants } from '@src/constants';
 import SearchableModal from '@src/features/homescreen/searchableModal';
+import FirstLoadLayout from '@src/features/homescreen/firstLoadLayout';
 
 const HomeScreen: React.FC = () => {
   const maxHeaderHeight = normalize(50, 'height');
@@ -127,6 +128,7 @@ const HomeScreen: React.FC = () => {
       ) : (
         <ProductsList data={products} toggleHideHeader={toggleHideHeader} />
       )}
+      <FirstLoadLayout />
     </SafeAreaView>
   );
 };

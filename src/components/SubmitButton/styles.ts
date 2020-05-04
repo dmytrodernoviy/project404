@@ -1,7 +1,9 @@
 import { StyleSheet } from 'react-native';
 import normalize from 'react-native-normalize';
 import { colors, fonts } from '@src/constants';
+import { screenHeight } from '@src/utils/helpers';
 
+const circleSize = screenHeight * 2;
 export default StyleSheet.create({
   container: {
     alignItems: 'center',
@@ -31,5 +33,15 @@ export default StyleSheet.create({
     left: normalize(100) - normalize(25, 'height'),
     justifyContent: 'center',
     backgroundColor: colors.authMain,
+  },
+  coverageLayout: {
+    width: circleSize,
+    height: circleSize,
+    position: 'absolute',
+    left: normalize(100) - circleSize / 2,
+    top: normalize(25, 'height') - circleSize / 2,
+    zIndex: 100,
+    backgroundColor: colors.tabNavigatior,
+    borderRadius: circleSize,
   },
 });

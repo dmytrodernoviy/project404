@@ -11,6 +11,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     marginLeft: normalize(10),
     width: normalize(60),
+    zIndex: 99,
   },
   rightPosition: {
     alignSelf: 'flex-end',

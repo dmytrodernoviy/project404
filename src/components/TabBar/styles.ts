@@ -7,6 +7,7 @@ import { isIOSPlatform } from '@src/utils/helpers';
 export default StyleSheet.create({
   container: {
     height: normalize(45, 'height'),
+    position: 'absolute',
     bottom: isIOSPlatform() ? StaticSafeAreaInsets.safeAreaInsetsBottom : 0,
     width: '100%',
     flexDirection: 'row',

@@ -52,6 +52,7 @@ export default StyleSheet.create({
   keyboardAvoiding: {
     flex: 1,
     justifyContent: 'space-between',
+    zIndex: 200,
   },
   logo: {
     alignSelf: 'center',
