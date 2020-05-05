@@ -999,11 +999,6 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.7.tgz#a65ce0702f55cb67fd777995de6fc7b3e5781903"
   integrity sha512-9KbP7LTLFz9dx1heURJbO6nuVMdSjDez8znlrUzaB1nUwKVsTTwlKRuHxGUYIIkReLWrJQeCv9tidy+84z2eCw==
 
-"@react-native-community/netinfo@^5.8.0":
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-5.8.0.tgz#6afdc9fb8cc6ecf964949f39d03776f57017303a"
-  integrity sha512-MIidbcOggE4InzMunRmo7BW7wovHfoEnlYp11jyIkG4MNXaMFUbXJHUufNby2iuQnQmnTA4AfKWK9uBD8NGDRg==
-
 "@react-navigation/core@^3.7.4":
   version "3.7.4"
   resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-3.7.4.tgz#eaa4c4216baddba86a992054f39ad4084ad3563d"
@@ -2409,11 +2404,6 @@ dayjs@^1.8.15:
   version "1.8.23"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.23.tgz#07b5a8e759c4d75ae07bdd0ad6977f851c01e510"
   integrity sha512-NmYHMFONftoZbeOhVz6jfiXI4zSiPN6NoVWJgC0aZQfYVwzy/ZpESPHuCcI0B8BUMpSJQ08zenHDbofOLKq8hQ==
-
-dayjs@^1.8.24:
-  version "1.8.26"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.26.tgz#c6d62ccdf058ca72a8d14bb93a23501058db9f1e"
-  integrity sha512-KqtAuIfdNfZR5sJY1Dixr2Is4ZvcCqhb0dZpCOt5dGEFiMzoIbjkTSzUb4QKTCsP+WNpGwUjAFIZrnZvUxxkhw==
 
 debounce@^1.2.0:
   version "1.2.0"
@@ -5710,16 +5700,6 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-native-flipper@^0.37.0:
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.37.0.tgz#15187696e7361553952a83c77dcf53e508261662"
-  integrity sha512-ZnL31EfUoXpFY4zddm/8hW6hh7+wr1VXFV+2s9TWx5F9XQ/bNVFsP+2/bbTVwYE678caZOpmHxkWebkVb2PTtA==
-
-react-native-flipper@^0.39.0:
-  version "0.39.0"
-  resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.39.0.tgz#46160e90824f57e53e2bce1e6f4cd5c4a22e50d1"
-  integrity sha512-9aggakdZMjzhMuWLIviHefz4BJ6s80zUCDJHjqC2k2ja5FT8i8AAdfnQO0F5wzMyghx9fKtXhBzyNRs6U00cgg==
-
 react-native-gesture-handler@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.6.1.tgz#678e2dce250ed66e93af409759be22cd6375dd17"
@@ -5805,11 +5785,6 @@ react-native-snackbar-component@^1.1.8:
   dependencies:
     prop-types "^15.6.0"
 
-react-native-snackbar@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-snackbar/-/react-native-snackbar-2.2.0.tgz#8b4daf9e16523d61f0152d816ba39982fcbf1198"
-  integrity sha512-j2qVtuXuk3FGNxUjnBqHiQLnz2lYVwCyrsvxpCCxif7ddMqY0sfbACXUwRLTEB5d3aliSN/6EZInGCJ93e4cMQ==
-
 react-native-spinkit@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/react-native-spinkit/-/react-native-spinkit-1.5.0.tgz#598b4b138b1e95cc232dfb2fc7e64dcdd45de574"
@@ -5826,11 +5801,6 @@ react-native-static-safe-area-insets@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-native-static-safe-area-insets/-/react-native-static-safe-area-insets-2.0.0.tgz#3a00e77e00cf2b80227c179359f1856971069da8"
   integrity sha512-ZHBRIZ8fzTOcgHEhUcCXkMMyzjkU/aieY60im5QJq9GiqO2ACJ254guV06w/HYlUH6EpWoEvpRzt3CDu1qIiDw==
-
-react-native-status-bar-height@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/react-native-status-bar-height/-/react-native-status-bar-height-2.5.0.tgz#bc0fb85230603850aab9667ee8111a62954de90c"
-  integrity sha512-sYBCPYA/NapBSHkdm/IVL4ID3LLlIuLqINi2FBDyMkc2BU9pfSGOtkz9yfxoK39mYJuTrlTOQ7mManARUsYDSA==
 
 react-native-tab-view@^2.11.0:
   version "2.13.0"
@@ -6007,14 +5977,6 @@ redux-devtools-extension@^2.13.8:
   version "2.13.8"
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
   integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
-
-redux-flipper@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/redux-flipper/-/redux-flipper-1.0.0.tgz#f1febac08d6c3ce82c25b01e85b7090df5e92d68"
-  integrity sha512-EIylZFQE5ArCx6PFlQqshKC+a4ZQtJwYpzX+ixqC2nu+f5hy8VQlkOeBwBonyYQOsCOw8oiRPZenSL609+faNg==
-  dependencies:
-    dayjs "^1.8.24"
-    react-native-flipper "^0.37.0"
 
 redux-saga@^1.1.3:
   version "1.1.3"

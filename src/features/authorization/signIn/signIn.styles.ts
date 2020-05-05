@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import normalize from 'react-native-normalize';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
+import StaticSafeAreaInsets from 'react-native-static-safe-area-insets';
 import { colors } from '@src/constants';
 
 export default StyleSheet.create({
@@ -46,7 +46,7 @@ export default StyleSheet.create({
     },
     shadowOpacity: 0.4,
     shadowRadius: 14.78,
-    top: getStatusBarHeight(),
+    top: StaticSafeAreaInsets.safeAreaInsetsTop,
     width: '90%',
   },
   keyboardAvoiding: {
