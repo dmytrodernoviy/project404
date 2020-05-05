@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Animated, SafeAreaView, TextInput, View, Modal } from 'react-native';
+import { Animated, SafeAreaView, TextInput, View } from 'react-native';
 import normalize from 'react-native-normalize';
 import debounce from 'lodash.debounce';
 import styles from './styles';

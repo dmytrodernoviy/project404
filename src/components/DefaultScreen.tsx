@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
+import { colors } from '@src/constants';
 
 class DefaultScreen extends Component {
   render() {
@@ -9,6 +10,7 @@ class DefaultScreen extends Component {
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
+          backgroundColor: colors.tabNavigatior,
         }}
       />
     );
