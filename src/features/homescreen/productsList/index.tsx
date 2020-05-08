@@ -11,14 +11,13 @@ import styles from './styles';
 import { Props } from './types';
 import { TProductItem } from '@src/constants/commonTypes';
 import { colors } from '@src/constants';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { ProductsSelectors } from '@src/redux/products/selectors';
 import { DispatcherService } from '@src/services';
 import { ActivitySpinner } from '@src/components';
 import { isIOSPlatform } from '@src/utils/helpers';
 
 const ProductsList: React.FC<Props> = ({ data, toggleHideHeader }) => {
-  const dispatch = useDispatch();
   const isRefreshing = useSelector(ProductsSelectors.isRefreshing);
   const isLoadingMore = useSelector(ProductsSelectors.isLoadingMore);
   const dynamicValues = useRef({
@@ -32,18 +31,16 @@ const ProductsList: React.FC<Props> = ({ data, toggleHideHeader }) => {
       if (type === 'isRefreshing') {
         dynamicValues.current.page = 1;
         DispatcherService.getProducts({
-          dispatch,
           page: dynamicValues.current.page,
         });
       } else {
         dynamicValues.current.page += 1;
         DispatcherService.getProducts({
-          dispatch,
           page: dynamicValues.current.page,
         });
       }
     },
-    [dispatch],
+    [],
   );
 
   const onScroll = ({
@@ -88,8 +85,8 @@ const ProductsList: React.FC<Props> = ({ data, toggleHideHeader }) => {
           }}
         />
       }
-      contentInset={{ top: normalize(65, 'height') }}
-      contentOffset={{ y: -normalize(65, 'height') }}
+      contentInset={{ top: normalize(95, 'height') }}
+      contentOffset={{ y: -normalize(95, 'height') }}
       renderItem={({ item }: { item: TProductItem }): Element => (
         <ProductsListItem item={item} />
       )}

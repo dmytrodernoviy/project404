@@ -1,36 +1,42 @@
 import { StyleSheet } from 'react-native';
 import normalize from 'react-native-normalize';
-import { colors } from '@src/constants';
 import StaticSafeAreaInsets from 'react-native-static-safe-area-insets';
 import { isIOSPlatform } from '@src/utils/helpers';
+import { colors } from '@src/constants';
 
 export default StyleSheet.create({
   container: {
-    height: normalize(45, 'height'),
+    height: isIOSPlatform()
+      ? normalize(50, 'height') + StaticSafeAreaInsets.safeAreaInsetsBottom
+      : normalize(50, 'height'),
     position: 'absolute',
-    bottom: isIOSPlatform() ? StaticSafeAreaInsets.safeAreaInsetsBottom : 0,
+    bottom: 0,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: normalize(20),
+    overflow: 'hidden',
     borderTopRightRadius: normalize(30),
     borderTopLeftRadius: normalize(30),
-    backgroundColor: colors.tabNavigatior,
-    shadowColor: colors.activeTab,
-    shadowOffset: {
-      width: 0,
-      height: -normalize(15, 'height'),
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
-    elevation: 24,
   },
   bottomBlock: {
     height: StaticSafeAreaInsets.safeAreaInsetsBottom,
     width: '100%',
-    backgroundColor: colors.tabNavigatior,
     position: 'absolute',
     bottom: 0,
+  },
+  iOSBarContainer: {
+    paddingBottom: StaticSafeAreaInsets.safeAreaInsetsBottom,
+  },
+  androidBarContainer: {
+    backgroundColor: colors.tabNavigatior,
+  },
+  bothPlatformsContainer: {
+    width: '100%',
+    height: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: normalize(20),
   },
 });

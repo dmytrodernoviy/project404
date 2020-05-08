@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Animated, SafeAreaView, TextInput, View } from 'react-native';
+import { Animated, TextInput, View } from 'react-native';
 import normalize from 'react-native-normalize';
 import debounce from 'lodash.debounce';
 import styles from './styles';
@@ -104,7 +104,7 @@ const HomeScreen: React.FC = () => {
   });
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       {isIOSPlatform() && <View style={styles.topBlock} />}
       <AnimatedScreenHeader
         placeholder={translationString(translationsConstants.search, locale)}
@@ -129,7 +129,7 @@ const HomeScreen: React.FC = () => {
         <ProductsList data={products} toggleHideHeader={toggleHideHeader} />
       )}
       <FirstLoadLayout />
-    </SafeAreaView>
+    </View>
   );
 };
 
