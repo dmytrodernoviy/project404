@@ -5,6 +5,7 @@
 #import <React/RCTRootView.h>
 #import "RNSplashScreen.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <RNGoogleSignin/RNGoogleSignin.h>
 
 #if DEBUG
 #import <FlipperKit/FlipperClient.h>
@@ -57,13 +58,12 @@ static void InitializeFlipper(UIApplication *application) {
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
 
-  BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
     openURL:url
     sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
     annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
-  ];
+  ] || [RNGoogleSignin application:application openURL:url options:options];
   // Add any custom logic here.
-  return handled;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

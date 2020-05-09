@@ -11,6 +11,8 @@ const colors = {
   productListItem: ['#C39CFF', '#598FFF', '#1D88FF'],
   productListItemShadow: '#1D88FF',
   white: 'white',
+  facebook: '#3B5998',
+  google: '#DB4437',
 };
 
 export default colors;

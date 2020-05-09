@@ -3,7 +3,7 @@ import { serviceAPIAuth } from '@src/services/api/serviceAPIAuth';
 import { DispatcherService } from '@src/services/dispatcherService';
 import { serviceAPIProducts } from '@src/services/api/serviceAPIProducts';
 import { SecureStorageService } from '@src/services/secureStorageService';
-import { LoginBySNService } from '@src/services/loginBySNService';
+import { SocialNetworkService } from '@src/services/socialNetworkService';
 
 export {
   NavigationService,
@@ -11,5 +11,5 @@ export {
   DispatcherService,
   serviceAPIProducts,
   SecureStorageService,
-  LoginBySNService,
+  SocialNetworkService,
 };

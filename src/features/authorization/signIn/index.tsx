@@ -11,6 +11,7 @@ import styles from './signIn.styles';
 import { images, screenNames } from '@src/constants';
 import NextScreenButton from '@src/features/authorization/signIn/components/NextScreenButton';
 import SignInForm from '@src/features/authorization/signIn/components/SignInForm';
+import SocialButton from '@src/features/authorization/socialButton';
 
 const SignInScreen: React.FC = () => {
   return (
@@ -34,6 +35,7 @@ const SignInScreen: React.FC = () => {
               <SignInForm />
             </KeyboardAvoidingView>
             <NextScreenButton routeName={screenNames.SignUpScreen} />
+            <SocialButton />
           </View>
         </SafeAreaView>
       </View>

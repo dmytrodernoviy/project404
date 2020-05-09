@@ -38,6 +38,7 @@
 		D293E625E66648C6B14193A4 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD3E9ED66547446D86B9B397 /* Octicons.ttf */; };
 		DF51D025BC28411E822949A1 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBE2F2F99D48BEA666878D /* EvilIcons.ttf */; };
 		EB32F9A42436124900F3CB62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB32F9A32436124900F3CB62 /* Images.xcassets */; };
+		EB5A12552466A0FB006C86D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB5A12542466A0FB006C86D5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		E25AC7EF861948E8B4839180 /* Pods-Project404-Project404Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project404-Project404Tests.release.xcconfig"; path = "Target Support Files/Pods-Project404-Project404Tests/Pods-Project404-Project404Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E8E1C52666B4485E87D5F2C7 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		EB32F9A32436124900F3CB62 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Project404/Images.xcassets; sourceTree = "<group>"; };
+		EB5A12542466A0FB006C86D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F52C67CF1C5E4EC99001B4D3 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		13B07FAE1A68108700A75B9A /* Project404 */ = {
 			isa = PBXGroup;
 			children = (
+				EB5A12542466A0FB006C86D5 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -405,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				EB5A12552466A0FB006C86D5 /* GoogleService-Info.plist in Resources */,
 				1FB6B5166C4544B7843ED202 /* AntDesign.ttf in Resources */,
 				D0CD48CF8C384F519FDB800D /* Entypo.ttf in Resources */,
 				DF51D025BC28411E822949A1 /* EvilIcons.ttf in Resources */,
@@ -489,6 +493,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Project404/Pods-Project404-resources.sh",
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -602,6 +607,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Project404-Project404Tests/Pods-Project404-Project404Tests-resources.sh",
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -622,6 +628,7 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",

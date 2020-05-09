@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "685881540446",
+    "firebase_url": "https://project404-d339f.firebaseio.com",
+    "project_id": "project404-d339f",
+    "storage_bucket": "project404-d339f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685881540446:android:2caaad91ff1c8a1c58d9cf",
+        "android_client_info": {
+          "package_name": "com.project404"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685881540446-h26b94vqcj29cbgaq1mfj6un0tb479vr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbjPRuwUAJgY1g9eqjm1aPW2d7gVn21iY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685881540446-h26b94vqcj29cbgaq1mfj6un0tb479vr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "685881540446-icsec5726cppaqlqusblhkrupo6nf8bu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.Project404"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
