@@ -8,6 +8,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
+    marginBottom: normalize(20, 'height'),
   },
   title: {
     ...fonts.main_18,

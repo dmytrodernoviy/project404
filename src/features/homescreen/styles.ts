@@ -14,4 +14,15 @@ export default StyleSheet.create({
     zIndex: 30,
     backgroundColor: colors.tabNavigatior,
   },
+  background: {
+    flex: 1,
+    resizeMode: 'contain',
+  },
+  blurView: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
 });

@@ -1,39 +1,35 @@
 import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import normalize from 'react-native-normalize';
+import { TouchableOpacity, View, Text } from 'react-native';
 import { Props } from '@src/features/authorization/signIn/components/NextScreenButton/types';
 import styles from '@src/features/authorization/signIn/components/NextScreenButton/styles';
-import { colors, screenNames } from '@src/constants';
-import { NavigationService } from '@src/services';
+import { useSelector } from 'react-redux';
+import { HelperSelector } from '@src/redux/helper/selectors';
+import { translationString } from '@src/translations';
+import { translationsConstants } from '@src/constants';
 
-const NextScreenButton: React.FC<Props> = ({ routeName }) => {
-  let iconType = '';
-
-  switch (routeName) {
-    case screenNames.SignUpScreen:
-      iconType = 'ios-arrow-round-forward';
-      break;
-    case screenNames.SignInScreen:
-      iconType = 'ios-arrow-round-back';
-      break;
-    default:
-      iconType = '';
-  }
-
+const NextScreenButton: React.FC<Props> = ({ onPress, isRegisterScreen }) => {
+  const locale = useSelector(HelperSelector.locale);
   return (
-    <TouchableOpacity
-      onPress={(): void => {
-        NavigationService.navigate(routeName);
-      }}>
-      <View
-        style={[
-          styles.container,
-          routeName === screenNames.SignInScreen && styles.rightPosition,
-        ]}>
-        <Icon name={iconType} size={normalize(50)} color={colors.authAdd} />
-      </View>
-    </TouchableOpacity>
+    <View style={styles.container}>
+      <Text style={styles.label}>
+        {translationString(
+          !isRegisterScreen
+            ? translationsConstants["don't_have_account"]
+            : translationsConstants.have_you_got_account,
+          locale,
+        ).toUpperCase()}{' '}
+      </Text>
+      <TouchableOpacity onPress={(): void => onPress()}>
+        <Text style={styles.signUp}>
+          {translationString(
+            !isRegisterScreen
+              ? translationsConstants.sign_up
+              : translationsConstants.sign_in,
+            locale,
+          ).toUpperCase()}
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 

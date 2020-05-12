@@ -5,7 +5,7 @@ import { colors, fonts } from '@src/constants';
 export default StyleSheet.create({
   error: {
     ...fonts.validateError,
-    color: 'red',
+    color: colors.error,
   },
   errorView: {
     height: normalize(30, 'height'),
@@ -18,12 +18,14 @@ export default StyleSheet.create({
   },
   inputContainer: {
     borderBottomColor: colors.authMain,
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
     flexDirection: 'row',
+    alignItems: 'center',
     paddingBottom: normalize(10, 'height'),
     width: '100%',
   },
-  rotate: {
-    transform: [{ rotate: '-90deg' }],
+  icon: {
+    height: normalize(30),
+    width: normalize(30),
   },
 });

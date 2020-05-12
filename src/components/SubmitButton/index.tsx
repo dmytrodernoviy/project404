@@ -19,7 +19,6 @@ const SubmitButton: React.FC<Props> = ({
   onSubmitPress,
   scaleLoaderValue,
   scaleButtonValue,
-  positionRight,
 }) => {
   const scale = useRef(new Animated.Value(0)).current;
   const isAnimationStart = useSelector(AuthSelectors.isAnimationLoginLayout);
@@ -40,8 +39,7 @@ const SubmitButton: React.FC<Props> = ({
   }, [isAnimationStart]);
 
   return (
-    <View
-      style={[styles.buttonContainer, positionRight && styles.positionRight]}>
+    <View style={[styles.buttonContainer]}>
       <TouchableOpacity onPress={onSubmitPress}>
         <View>
           <Animated.View
@@ -56,7 +54,7 @@ const SubmitButton: React.FC<Props> = ({
               ...styles.loader,
               transform: [{ scale: scaleLoaderValue }],
             }}>
-            <ActivityIndicator color={colors.authAdd} />
+            <ActivityIndicator color={colors.authMain} />
           </Animated.View>
         </View>
       </TouchableOpacity>

@@ -11,4 +11,9 @@ export const translationsConstants = {
   catalog: 'catalog',
   connection_lost: 'connection_lost',
   something_went_wrong: 'something_went_wrong',
+  "don't_have_account": "don't_have_account",
+  have_you_got_account: 'have_you_got_account',
+  sign_in: 'sign_in',
+  sign_up: 'sign_up',
+  or: 'or',
 };

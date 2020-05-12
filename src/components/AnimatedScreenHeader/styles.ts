@@ -18,7 +18,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: normalize(20),
     paddingVertical: normalize(15, 'height'),
-    shadowColor: colors.activeTab,
     shadowOffset: {
       width: 0,
       height: normalize(20, 'height'),

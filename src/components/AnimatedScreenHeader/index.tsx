@@ -58,7 +58,7 @@ const AnimatedScreenHeader: React.FC<Props> = ({
             name={'ios-close-circle'}
             size={normalize(20)}
             style={styles.closeIcon}
-            color={colors.white}
+            color={'black'}
           />
         </TouchableOpacity>
       </Animated.View>

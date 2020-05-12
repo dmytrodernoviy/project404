@@ -4,17 +4,17 @@ import Dialog, { DialogContent } from 'react-native-popup-dialog';
 import normalize from 'react-native-normalize';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from '@src/components/AnimatedPopup/styles';
-import { colors, screenNames } from '@src/constants';
+import { colors } from '@src/constants';
 import { useSelector } from 'react-redux';
 import { AuthSelectors } from '@src/redux/auth/selectors';
-import { DispatcherService, NavigationService } from '@src/services';
+import { DispatcherService } from '@src/services';
 
-const AnimatedPopup: React.FC = () => {
+const AnimatedPopup: React.FC<{ onPress: () => void }> = ({ onPress }) => {
   const isVisible = useSelector(AuthSelectors.isAfterRegisterPopupVisible);
 
   const onButtonPress = (): void => {
     DispatcherService.toggleAfterRegisterPopup(false);
-    NavigationService.navigate(screenNames.SignInScreen);
+    onPress();
   };
 
   return (

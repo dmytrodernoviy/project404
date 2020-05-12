@@ -79,7 +79,7 @@ const ProductsList: React.FC<Props> = ({ data, toggleHideHeader }) => {
       refreshControl={
         <RefreshControl
           refreshing={isRefreshing}
-          tintColor={colors.activeTab}
+          tintColor={colors.authMain}
           onRefresh={(): void => {
             setPagination({ type: 'isRefreshing' });
           }}

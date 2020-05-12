@@ -16,7 +16,7 @@ const ActivitySpinner: React.FC<{
           <Spinner
             size={spinnerSize}
             type={'FadingCircleAlt'}
-            color={colors.activeTab}
+            color={colors.authMain}
           />
         </View>
       )}

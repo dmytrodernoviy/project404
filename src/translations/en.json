@@ -3,13 +3,16 @@
   "email": "Email",
   "password": "Password",
   "subscribe": "Subscribe",
-  "register": "Register",
-  "login": "Login",
   "required_field": "Required field",
   "invalid_email": "Invalid email",
   "short_password": "Minimum 8 symbols",
   "search": "Search",
   "catalog": "Catalog",
   "connection_lost": "Connection has been lost",
-  "something_went_wrong": "Something went wrong. Please, try again later."
+  "something_went_wrong": "Something went wrong. Please, try again later.",
+  "don't_have_account": "Don't have an account?",
+  "have_you_got_account": "Have you got account?",
+  "sign_in": "Sign In",
+  "sign_up": "Sign Up",
+  "or": "or"
 }

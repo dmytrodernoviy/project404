@@ -10,8 +10,11 @@ import { translationString } from '@src/translations';
 import { HelperSelector } from '@src/redux/helper/selectors';
 import { translationsConstants } from '@src/constants';
 import { useAnimationButtonAndRequest } from '@src/features/authorization/hooks';
+import NextScreenButton from '@src/features/authorization/signIn/components/NextScreenButton';
 
-const SignUpForm: React.FC = () => {
+const SignUpForm: React.FC<{ changeScreen: () => void }> = ({
+  changeScreen,
+}) => {
   const locale = useSelector(HelperSelector.locale);
   const {
     scaleButtonValue,
@@ -62,12 +65,12 @@ const SignUpForm: React.FC = () => {
           </View>
           <SubscribeSwitch handleSwitch={setFieldValue} locale={locale} />
           <SubmitButton
-            label={translationString(translationsConstants.register, locale)}
+            label={translationString(translationsConstants.sign_up, locale)}
             onSubmitPress={handleSubmit}
             scaleButtonValue={scaleButtonValue}
             scaleLoaderValue={scaleLoaderValue}
-            positionRight={true}
           />
+          <NextScreenButton onPress={changeScreen} isRegisterScreen />
         </View>
       )}
     </Formik>

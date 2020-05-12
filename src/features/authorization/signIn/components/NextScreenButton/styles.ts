@@ -1,19 +1,22 @@
 import { StyleSheet } from 'react-native';
 import normalize from 'react-native-normalize';
-import { colors } from '@src/constants';
+import { colors, fonts } from '@src/constants';
 
 export default StyleSheet.create({
   container: {
+    flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.authMain,
-    borderRadius: normalize(25),
-    height: normalize(50),
     justifyContent: 'center',
-    marginLeft: normalize(10),
-    width: normalize(60),
-    zIndex: 99,
+    width: '100%',
+    zIndex: -1,
+    marginTop: normalize(10, 'height'),
   },
-  rightPosition: {
-    alignSelf: 'flex-end',
+  label: {
+    ...fonts.validateError,
+    color: colors.logo,
+  },
+  signUp: {
+    color: colors.authMain,
+    ...fonts.validateError,
   },
 });

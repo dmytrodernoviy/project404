@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TextInput, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Fontisto';
 import normalize from 'react-native-normalize';
 import styles from './styles';
 import { colors } from '@src/constants';
@@ -19,20 +19,17 @@ const FormInput: React.FC<Props> = ({
 
   switch (type) {
     case 'email':
-      iconType = 'ios-mail';
+      iconType = 'email';
       break;
     case 'password':
-      iconType = 'ios-key';
-      break;
-    case 'login':
-      iconType = 'ios-contact';
+      iconType = 'locked';
       break;
     default:
       iconType = '';
   }
 
   return (
-    <View>
+    <>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -46,15 +43,15 @@ const FormInput: React.FC<Props> = ({
         />
         <Icon
           name={iconType}
-          size={normalize(35)}
+          size={normalize(30)}
           color={error && touched ? colors.error : colors.authMain}
-          style={type === 'password' && styles.rotate}
+          style={styles.icon}
         />
       </View>
       <View style={styles.errorView}>
         {touched && <Text style={styles.error}>{error && error}</Text>}
       </View>
-    </View>
+    </>
   );
 };
 

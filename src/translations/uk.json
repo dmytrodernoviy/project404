@@ -3,13 +3,16 @@
   "email": "Пошта",
   "password": "Пароль",
   "subscribe": "Підписка",
-  "register": "Реєстрація",
-  "login": "Увійти",
   "required_field": "Поле обов'язкове",
   "invalid_email": "Невірний формат",
   "short_password": "Мінімум 8 символів",
   "search": "Пошук",
   "catalog": "Каталог",
   "connection_lost": "Відсутнє підключення до Інтернету",
-  "something_went_wrong": "Щось пішло не так. Будь ласка, спробуйте пізніше."
+  "something_went_wrong": "Щось пішло не так. Будь ласка, спробуйте пізніше.",
+  "don't_have_account": "Немає акаунту?",
+  "have_you_got_account": "Є акаунт?",
+  "sign_in": "Вхід",
+  "sign_up": "Реєстрація",
+  "or": "Або"
 }

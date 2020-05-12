@@ -1,3 +1,4 @@
 export interface Props {
-  routeName: string;
+  onPress: () => void;
+  isRegisterScreen?: boolean;
 }

@@ -1,5 +1,4 @@
 export default {
-  SignInScreen: 'SignInScreen',
-  SignUpScreen: 'SignUpScreen',
+  AuthScreen: 'AuthScreen',
   HomeScreen: 'HomeScreen',
 };

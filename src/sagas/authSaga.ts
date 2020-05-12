@@ -78,9 +78,7 @@ export function* autoSignIn() {
     const token = yield call(SecureStorageService.getToken);
     if (token) {
       yield call(serviceAPIAuth.setTokenToHeaders, token);
-      // NavigationService.navigate(navigationStackNames.TabStack);
-      SplashScreen.hide();
-    } else {
+      NavigationService.navigate(navigationStackNames.TabStack);
       SplashScreen.hide();
     }
   } catch (e) {

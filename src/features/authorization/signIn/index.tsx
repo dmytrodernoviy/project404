@@ -1,28 +1,23 @@
 import React from 'react';
 import {
   Image,
-  SafeAreaView,
   View,
   Keyboard,
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
 } from 'react-native';
 import styles from './signIn.styles';
-import { images, screenNames } from '@src/constants';
-import NextScreenButton from '@src/features/authorization/signIn/components/NextScreenButton';
+import { images } from '@src/constants';
 import SignInForm from '@src/features/authorization/signIn/components/SignInForm';
 import SocialButton from '@src/features/authorization/socialButton';
 
-const SignInScreen: React.FC = () => {
+const SignInScreen: React.FC<{ changeScreen: () => void }> = ({
+  changeScreen,
+}) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.dismissContainer}>
-        <SafeAreaView style={styles.topSafeArea} />
-        <SafeAreaView style={styles.container}>
-          <View style={styles.content}>
-            <View style={styles.topBlock} />
-            <View style={styles.bottomBlock} />
-          </View>
+        <View style={styles.container}>
           <View style={styles.formContainer}>
             <KeyboardAvoidingView
               style={styles.keyboardAvoiding}
@@ -32,12 +27,11 @@ const SignInScreen: React.FC = () => {
                 style={styles.logo}
                 resizeMode="contain"
               />
-              <SignInForm />
+              <SignInForm changeScreen={changeScreen} />
             </KeyboardAvoidingView>
-            <NextScreenButton routeName={screenNames.SignUpScreen} />
             <SocialButton />
           </View>
-        </SafeAreaView>
+        </View>
       </View>
     </TouchableWithoutFeedback>
   );

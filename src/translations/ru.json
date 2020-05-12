@@ -3,13 +3,16 @@
   "email": "Почта",
   "password": "Пароль",
   "subscribe": "Подписка",
-  "register": "Регистрация",
-  "login": "Войти",
   "required_field": "Поле обязательное",
   "invalid_email": "Неверный формат",
   "short_password": "Минимум 8 символов",
   "search": "Поиск",
   "catalog": "Каталог",
   "connection_lost": "Отсутствует подключение к Интернету",
-  "something_went_wrong": "Что-то пошло не так. Пожалуйста, попробуйте позже."
+  "something_went_wrong": "Что-то пошло не так. Пожалуйста, попробуйте позже.",
+  "don't_have_account": "Нет аккаунта?",
+  "have_you_got_account": "Есть аккаунт?",
+  "sign_in": "Войти",
+  "sign_up": "Регистрация",
+  "or": "Или"
 }

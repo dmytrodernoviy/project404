@@ -7,22 +7,19 @@ const circleSize = screenHeight * 2;
 export default StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: colors.authMain,
+    borderWidth: 1,
+    borderColor: colors.authMain,
     borderRadius: normalize(25, 'height'),
     height: normalize(50, 'height'),
     justifyContent: 'center',
-    width: normalize(200),
-  },
-  positionRight: {
-    alignSelf: 'flex-end',
   },
   label: {
     ...fonts.submit,
-    color: colors.authAdd,
+    color: colors.authMain,
   },
   buttonContainer: {
     height: normalize(50, 'height'),
-    width: normalize(200),
+    width: normalize(300),
     marginTop: normalize(5, 'height'),
   },
   loader: {
@@ -30,17 +27,17 @@ export default StyleSheet.create({
     height: normalize(50, 'height'),
     borderRadius: normalize(25, 'height'),
     position: 'absolute',
-    left: normalize(100) - normalize(25, 'height'),
+    left: normalize(150) - normalize(25, 'height'),
     justifyContent: 'center',
-    backgroundColor: colors.authMain,
+    borderWidth: 1,
+    borderColor: colors.authMain,
   },
   coverageLayout: {
     width: circleSize,
     height: circleSize,
     position: 'absolute',
-    left: normalize(100) - circleSize / 2,
+    left: normalize(150) - circleSize / 2,
     top: normalize(25, 'height') - circleSize / 2,
-    zIndex: 100,
     backgroundColor: colors.tabNavigatior,
     borderRadius: circleSize,
   },

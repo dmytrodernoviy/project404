@@ -3,15 +3,15 @@ import normalize from 'react-native-normalize';
 const fonts = {
   main_18: {
     fontFamily: 'Roboto-Regular',
-    fontSize: normalize(18, 'height'),
+    fontSize: normalize(14, 'height'),
   },
   validateError: {
-    fontFamily: 'Roboto-Medium',
-    fontSize: normalize(16, 'height'),
+    fontFamily: 'Roboto-Regular',
+    fontSize: normalize(12, 'height'),
   },
   submit: {
-    fontFamily: 'Roboto-Medium',
-    fontSize: normalize(22, 'height'),
+    fontFamily: 'Roboto-Regular',
+    fontSize: normalize(14, 'height'),
   },
   popupButton: {
     fontFamily: 'Roboto-Medium',

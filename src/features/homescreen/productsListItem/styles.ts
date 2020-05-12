@@ -7,10 +7,10 @@ export default StyleSheet.create({
     borderRadius: normalize(50),
     width: '48%',
     height: normalize(200),
-    shadowColor: colors.productListItemShadow,
+    shadowColor: colors.authAdd,
     shadowOffset: {
       width: 0,
-      height: 10,
+      height: 5,
     },
     shadowOpacity: 0.6,
     shadowRadius: 6,

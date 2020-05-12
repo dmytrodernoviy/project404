@@ -4,8 +4,8 @@ import { colors, fonts } from '@src/constants';
 
 export default StyleSheet.create({
   container: {
-    borderBottomLeftRadius: normalize(100, 'height'),
-    borderTopRightRadius: normalize(100, 'height'),
+    borderBottomLeftRadius: normalize(70, 'height'),
+    borderTopRightRadius: normalize(70, 'height'),
   },
   content: {
     height: normalize(200, 'height'),

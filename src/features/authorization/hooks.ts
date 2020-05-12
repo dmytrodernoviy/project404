@@ -1,6 +1,12 @@
-import { useCallback, useRef, useState } from 'react';
-import { Animated, Keyboard } from 'react-native';
+import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
+import {
+  Animated,
+  findNodeHandle,
+  ImageBackground,
+  Keyboard,
+} from 'react-native';
 import { DispatcherService } from '@src/services';
+import SplashScreen from 'react-native-splash-screen';
 
 export const useAnimationButtonAndRequest = (
   requestType: 'signIn' | 'signUp',
@@ -69,5 +75,26 @@ export const useAnimationButtonAndRequest = (
     scaleLoaderValue,
     scaleButtonValue,
     onSubmit,
+  };
+};
+
+export const useBlurView = (): {
+  blurRef: RefObject<ImageBackground>;
+  nodeNumber: number | null;
+} => {
+  const blurRef = useRef(null);
+  const [nodeNumber, setNodeNumber] = useState<number | null>(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      const nodeHandle = findNodeHandle(blurRef.current);
+      setNodeNumber(nodeHandle);
+      SplashScreen.hide();
+    }, 500);
+  }, [nodeNumber]);
+
+  return {
+    blurRef,
+    nodeNumber,
   };
 };

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Animated, TextInput, View } from 'react-native';
+import { Animated, ImageBackground, TextInput, View } from 'react-native';
 import normalize from 'react-native-normalize';
 import debounce from 'lodash.debounce';
 import styles from './styles';
@@ -11,9 +11,10 @@ import { isIOSPlatform, screenHeight } from '@src/utils/helpers';
 import { ProductsSelectors } from '@src/redux/products/selectors';
 import { HelperSelector } from '@src/redux/helper/selectors';
 import { translationString } from '@src/translations';
-import { translationsConstants } from '@src/constants';
+import { images, translationsConstants } from '@src/constants';
 import SearchableModal from '@src/features/homescreen/searchableModal';
 import FirstLoadLayout from '@src/features/homescreen/firstLoadLayout';
+import { BlurView } from '@react-native-community/blur';
 
 const HomeScreen: React.FC = () => {
   const maxHeaderHeight = normalize(50, 'height');

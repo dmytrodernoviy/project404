@@ -1,13 +1,16 @@
 import { StyleSheet } from 'react-native';
 import normalize from 'react-native-normalize';
-import { colors } from '@src/constants';
+import { colors, fonts } from '@src/constants';
 
 export default StyleSheet.create({
   container: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    zIndex: 201,
+    zIndex: -1,
+  },
+  containerButton: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'center',
+    marginTop: normalize(5, 'height'),
   },
   buttonContainer: {
     width: normalize(55),
@@ -18,11 +21,24 @@ export default StyleSheet.create({
   },
   facebook: {
     backgroundColor: colors.facebook,
-    marginRight: normalize(70),
+    marginLeft: normalize(15),
   },
   google: {
     backgroundColor: colors.google,
-    marginBottom: normalize(20, 'height'),
-    marginLeft: normalize(70),
+  },
+  hairLineContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  hairLine: {
+    width: '40%',
+    height: 1,
+    backgroundColor: colors.authMain,
+  },
+  label: {
+    ...fonts.main_18,
+    color: colors.authMain,
   },
 });
