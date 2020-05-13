@@ -23,7 +23,7 @@ const AnimatedPopup: React.FC<{ onPress: () => void }> = ({ onPress }) => {
         <Icon
           name={'md-done-all'}
           size={normalize(100, 'height')}
-          color={colors.authAdd}
+          color={colors.authMain}
           style={styles.iconSuccess}
         />
         <Text style={styles.title}>Register Success</Text>

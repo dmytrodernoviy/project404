@@ -4,7 +4,7 @@ import { colors, fonts } from '@src/constants';
 
 export default StyleSheet.create({
   container: {
-    borderRadius: normalize(50),
+    borderRadius: normalize(30),
     width: '48%',
     height: normalize(200),
     shadowColor: colors.authAdd,
@@ -18,7 +18,7 @@ export default StyleSheet.create({
   },
   gradient: {
     flex: 1,
-    borderRadius: normalize(50),
+    borderRadius: normalize(30),
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingVertical: normalize(15, 'height'),
@@ -33,7 +33,7 @@ export default StyleSheet.create({
     marginLeft: normalize(2),
   },
   text: {
-    color: colors.white,
+    color: colors.tabNavigatior,
   },
   title: {
     ...fonts.productLabel,
@@ -44,7 +44,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   currency: {
-    color: colors.white,
+    color: colors.tabNavigatior,
     fontSize: normalize(15, 'height'),
   },
 });

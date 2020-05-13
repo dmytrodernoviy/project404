@@ -12,13 +12,14 @@ export default StyleSheet.create({
     width: normalize(300),
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: colors.authMain,
+    backgroundColor: colors.tabNavigatior,
   },
   iconSuccess: {
     marginBottom: normalize(-30, 'height'),
   },
   title: {
     ...fonts.main_18,
+    color: colors.authMain,
   },
   button: {
     height: normalize(30, 'height'),
