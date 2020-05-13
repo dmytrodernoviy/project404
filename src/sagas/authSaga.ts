@@ -75,7 +75,7 @@ export function* signUpSaga({
 
 export function* autoSignIn() {
   try {
-    const token = yield call(SecureStorageService.getToken);
+    const token = yield call(SecureStorageService.removeToken);
     if (token) {
       yield call(serviceAPIAuth.setTokenToHeaders, token);
       NavigationService.navigate(navigationStackNames.TabStack);
