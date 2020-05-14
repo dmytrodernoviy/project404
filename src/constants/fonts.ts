@@ -29,6 +29,10 @@ const fonts = {
     fontFamily: 'Roboto-Medium',
     fontSize: normalize(16, 'height'),
   },
+  languagePickerItem: {
+    fontFamily: 'Roboto-Bold',
+    fontSize: normalize(12, 'height'),
+  },
 };
 
 export default fonts;

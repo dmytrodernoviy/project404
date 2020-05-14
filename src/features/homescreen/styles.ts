@@ -12,7 +12,7 @@ export default StyleSheet.create({
     height: StaticSafeAreaInsets.safeAreaInsetsTop,
     position: 'absolute',
     zIndex: 30,
-    backgroundColor: colors.tabNavigatior,
+    backgroundColor: colors.userBlock,
   },
   background: {
     flex: 1,

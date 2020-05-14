@@ -29,7 +29,7 @@ export default StyleSheet.create({
     paddingBottom: StaticSafeAreaInsets.safeAreaInsetsBottom,
   },
   androidBarContainer: {
-    backgroundColor: colors.tabNavigatior,
+    backgroundColor: colors.userBlock,
   },
   bothPlatformsContainer: {
     width: '100%',

@@ -10,7 +10,7 @@ export default StyleSheet.create({
     position: 'absolute',
     top: isIOSPlatform() ? StaticSafeAreaInsets.safeAreaInsetsTop : 0,
     zIndex: 20,
-    backgroundColor: colors.tabNavigatior,
+    backgroundColor: colors.userBlock,
     borderBottomLeftRadius: normalize(30),
     borderBottomRightRadius: normalize(30),
     flexDirection: 'row',

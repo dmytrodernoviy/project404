@@ -14,5 +14,10 @@
   "have_you_got_account": "Есть аккаунт?",
   "sign_in": "Войти",
   "sign_up": "Регистрация",
-  "or": "Или"
+  "or": "Или",
+  "system_language": "Язык",
+  "logout": "Выход",
+  "exit_question": "Вы действительно хотите выйти?",
+  "yes_answer": "Да",
+  "no_answer": "Нет"
 }

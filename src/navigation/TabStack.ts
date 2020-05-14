@@ -3,6 +3,7 @@ import { screenNames } from '@src/constants';
 import DefaultScreen from '@src/components/DefaultScreen';
 import HomeScreen from '@src/features/homescreen';
 import { TabBar } from '@src/components';
+import ProfileScreen from '@src/features/profile';
 
 const TabStack = createBottomTabNavigator(
   {
@@ -10,7 +11,7 @@ const TabStack = createBottomTabNavigator(
     sss: DefaultScreen,
     [screenNames.HomeScreen]: HomeScreen,
     ssss123: DefaultScreen,
-    ssss121: DefaultScreen,
+    [screenNames.ProfileScreen]: ProfileScreen,
   },
   {
     tabBarComponent: TabBar,

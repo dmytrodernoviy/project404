@@ -14,6 +14,7 @@ const colors = {
   facebook: '#3B5998',
   google: '#DB4437',
   logo: 'rgba(0, 239, 253, 0.7)',
+  userBlock: '#242527',
 };
 
 export default colors;

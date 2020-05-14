@@ -14,5 +14,10 @@
   "have_you_got_account": "Є акаунт?",
   "sign_in": "Вхід",
   "sign_up": "Реєстрація",
-  "or": "Або"
+  "or": "Або",
+  "system_language": "Мова",
+  "logout": "Вихід",
+  "exit_question": "Вы справді хочете вийти?",
+  "yes_answer": "Так",
+  "no_answer": "Ні"
 }

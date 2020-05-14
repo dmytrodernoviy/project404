@@ -14,5 +14,10 @@
   "have_you_got_account": "Have you got account?",
   "sign_in": "Sign In",
   "sign_up": "Sign Up",
-  "or": "or"
+  "or": "or",
+  "system_language": "Language",
+  "logout": "Logout",
+  "exit_question": "Do you want to exit?",
+  "yes_answer": "Yes",
+  "no_answer": "No"
 }

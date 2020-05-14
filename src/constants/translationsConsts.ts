@@ -16,4 +16,9 @@ export const translationsConstants = {
   sign_in: 'sign_in',
   sign_up: 'sign_up',
   or: 'or',
+  system_language: 'system_language',
+  logout: 'logout',
+  exit_question: 'exit_question',
+  yes_answer: 'yes_answer',
+  no_answer: 'no_answer',
 };

@@ -87,9 +87,13 @@ const ProductsList: React.FC<Props> = ({ data, toggleHideHeader }) => {
       }
       contentInset={{ top: normalize(95, 'height') }}
       contentOffset={{ y: -normalize(95, 'height') }}
-      renderItem={({ item }: { item: TProductItem }): Element => (
-        <ProductsListItem item={item} />
-      )}
+      renderItem={({
+        item,
+        index,
+      }: {
+        item: TProductItem;
+        index: number;
+      }): Element => <ProductsListItem item={item} index={index} />}
       ItemSeparatorComponent={(): Element => <View style={styles.separator} />}
       keyExtractor={(item: TProductItem, index: number): number =>
         item.id + index

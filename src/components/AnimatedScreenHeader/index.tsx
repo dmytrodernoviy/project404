@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 import { Props } from './types';
 import { translationString } from '@src/translations';
-import { colors, translationsConstants } from '@src/constants';
+import { translationsConstants } from '@src/constants';
 import SearchBar from '@src/components/SearchBar';
 
 const AnimatedScreenHeader: React.FC<Props> = ({

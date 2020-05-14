@@ -1,13 +1,23 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, Text, View, Animated } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
 import { colors, images } from '@src/constants';
 import { TProductItem } from '@src/constants/commonTypes';
+import { useProductItemAnimation } from '@src/features/homescreen/productsListItem/hooks';
 
-const ProductsListItem: React.FC<{ item: TProductItem }> = ({ item }) => {
+const ProductsListItem: React.FC<{ item: TProductItem; index: number }> = ({
+  item,
+  index,
+}) => {
+  const { opacity, itemScale } = useProductItemAnimation({ index });
   return (
-    <View style={styles.container}>
+    <Animated.View
+      style={{
+        ...styles.container,
+        opacity,
+        transform: [{ scale: itemScale }],
+      }}>
       <LinearGradient colors={colors.productListItem} style={styles.gradient}>
         <Text
           style={[styles.text, styles.title]}
@@ -21,7 +31,7 @@ const ProductsListItem: React.FC<{ item: TProductItem }> = ({ item }) => {
           <Text style={[styles.priceText, styles.text]}>{item.price}</Text>
         </View>
       </LinearGradient>
-    </View>
+    </Animated.View>
   );
 };
 
