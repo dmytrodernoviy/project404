@@ -2,7 +2,14 @@ import { useEffect, useRef } from 'react';
 import { Animated } from 'react-native';
 import { screenWidth } from '@src/utils/helpers';
 
-export const useProfileOptionsAnimation = ({ index }: { index: number }) => {
+export const useProfileOptionsAnimation = ({
+  index,
+}: {
+  index: number;
+}): {
+  itemTranslate: Animated.Value;
+  opacity: Animated.AnimatedInterpolation;
+} => {
   const itemTranslate = useRef(new Animated.Value(-screenWidth)).current;
 
   useEffect(() => {

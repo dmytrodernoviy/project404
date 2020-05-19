@@ -4,7 +4,7 @@ export const HelperConsts = {
 };
 
 export interface HelperReducerType {
-  currentLanguage: string;
+  currentLanguage: 'uk' | 'ru' | 'en';
   snackBarOptions: SnackBarOptions;
 }
 

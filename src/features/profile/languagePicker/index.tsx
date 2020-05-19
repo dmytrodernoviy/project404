@@ -12,7 +12,7 @@ import LanguageItemPicker from '@src/features/profile/languagePickerItem';
 const LanguagePicker: React.FC = () => {
   const languages: Array<'uk' | 'ru' | 'en'> = ['uk', 'ru', 'en'];
   const codes = { uk: 'UA', ru: 'RU', en: 'US' };
-  const locale = useSelector(HelperSelector.locale);
+  const locale: 'uk' | 'ru' | 'en' = useSelector(HelperSelector.locale);
   const [pickerState, setPickerState] = useState('closed');
 
   const togglePicker = useCallback(() => {

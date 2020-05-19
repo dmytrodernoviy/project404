@@ -5,7 +5,10 @@ import normalize from 'react-native-normalize';
 export const useLanguagePickerAnimation = (
   index: number,
   pickerState: string,
-) => {
+): {
+  itemTranslate: Animated.Value;
+  opacity: Animated.AnimatedInterpolation;
+} => {
   const value =
     index === 0
       ? -normalize(45, 'height')

@@ -2,7 +2,11 @@ import { useEffect, useRef } from 'react';
 import { Animated } from 'react-native';
 import normalize from 'react-native-normalize';
 
-export const useProfileAnimation = () => {
+export const useProfileAnimation = (): {
+  containerTranslate: Animated.Value;
+  userPhotoTranslate: Animated.AnimatedInterpolation;
+  opacity: Animated.AnimatedInterpolation;
+} => {
   const containerTranslate = useRef(
     new Animated.Value(-normalize(150, 'height')),
   ).current;
