@@ -16,6 +16,7 @@ export default StyleSheet.create({
   title: {
     ...fonts.main_18,
     color: colors.authMain,
+    textAlign: 'center',
   },
   button: {
     height: normalize(40, 'height'),
