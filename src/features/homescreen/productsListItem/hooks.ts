@@ -10,12 +10,13 @@ export const useProductItemAnimation = ({
   opacity: Animated.AnimatedInterpolation;
 } => {
   const itemScale = useRef(new Animated.Value(0)).current;
+  const delay = (index % 10) * 100;
 
   useEffect(() => {
     Animated.timing(itemScale, {
       toValue: 1,
       duration: 300,
-      delay: index * 100,
+      delay,
       useNativeDriver: true,
     }).start();
     // eslint-disable-next-line react-hooks/exhaustive-deps

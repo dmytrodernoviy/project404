@@ -110,7 +110,9 @@ const ProductsList: React.FC<TProps> = ({ data, toggleHideHeader }) => {
         />
       )}
       onEndReached={(): void => {
-        setPagination({ type: 'isLoadMore' });
+        if (!isLoadingMore) {
+          setPagination({ type: 'isLoadMore' });
+        }
       }}
       onEndReachedThreshold={isIOSPlatform() ? 0 : 0.01}
       showsVerticalScrollIndicator={false}
