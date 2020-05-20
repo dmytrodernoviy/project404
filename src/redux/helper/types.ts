@@ -1,7 +1,7 @@
-export const HelperConsts = {
-  SET_APP_LANGUAGE: 'SET_APP_LANGUAGE',
-  SHOW_SNACKBAR: 'SHOW_SNACKBAR',
-};
+export enum HelperConsts {
+  SET_APP_LANGUAGE = 'SET_APP_LANGUAGE',
+  SHOW_SNACKBAR = 'SHOW_SNACKBAR',
+}
 
 export interface HelperReducerType {
   currentLanguage: 'uk' | 'ru' | 'en';
@@ -10,7 +10,7 @@ export interface HelperReducerType {
 
 export interface SetAppLanguageAction {
   type: typeof HelperConsts.SET_APP_LANGUAGE;
-  payload: string;
+  payload: 'uk' | 'ru' | 'en';
 }
 
 export interface SnackBarOptions {

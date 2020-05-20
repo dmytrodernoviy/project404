@@ -1,14 +1,14 @@
 import { TProductItem } from '@src/constants/commonTypes';
 
-export const GetProductsConstants = {
-  GET_PRODUCTS_REQUEST: 'GET_PRODUCTS_REQUEST',
-  GET_PRODUCTS_SUCCESS: 'GET_PRODUCTS_SUCCESS',
-  GET_PRODUCTS_FAILURE: 'GET_PRODUCTS_FAILURE',
-  SEARCH_PRODUCTS_REQUEST: 'SEARCH_PRODUCTS_REQUEST',
-  SEARCH_PRODUCTS_SUCCESS: 'SEARCH_PRODUCTS_SUCCESS',
-  SEARCH_PRODUCTS_FAILURE: 'SEARCH_PRODUCTS_FAILURE',
-  CLEAR_SEARCHABLE_PRODUCTS: 'CLEAR_SEARCHABLE_PRODUCTS',
-};
+export enum GetProductsConstants {
+  GET_PRODUCTS_REQUEST = 'GET_PRODUCTS_REQUEST',
+  GET_PRODUCTS_SUCCESS = 'GET_PRODUCTS_SUCCESS',
+  GET_PRODUCTS_FAILURE = 'GET_PRODUCTS_FAILURE',
+  SEARCH_PRODUCTS_REQUEST = 'SEARCH_PRODUCTS_REQUEST',
+  SEARCH_PRODUCTS_SUCCESS = 'SEARCH_PRODUCTS_SUCCESS',
+  SEARCH_PRODUCTS_FAILURE = 'SEARCH_PRODUCTS_FAILURE',
+  CLEAR_SEARCHABLE_PRODUCTS = 'CLEAR_SEARCHABLE_PRODUCTS',
+}
 
 //Types for Reducer
 export interface ProductsReducerType {
@@ -19,7 +19,7 @@ export interface ProductsReducerType {
   isLoadingMore: boolean;
 }
 
-interface GetProductsRequest {
+export interface GetProductsRequest {
   type: typeof GetProductsConstants.GET_PRODUCTS_REQUEST;
   page: number;
   callback?: () => void;
@@ -35,14 +35,14 @@ interface GetProductsFailure {
   type: typeof GetProductsConstants.GET_PRODUCTS_FAILURE;
 }
 
-interface SearchProductRequest {
+export interface SearchProductRequest {
   type: typeof GetProductsConstants.SEARCH_PRODUCTS_REQUEST;
   payload: string;
 }
 
 interface SearchProductSuccess {
   type: typeof GetProductsConstants.SEARCH_PRODUCTS_SUCCESS;
-  payload: Array<TProductItem>;
+  payload: Array<string>;
 }
 
 interface SearchProductFailure {

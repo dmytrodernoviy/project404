@@ -5,7 +5,9 @@ import {
   SnackBarOptions,
 } from '@src/redux/helper/types';
 
-export const SetAppLanguage = (payload: string): SetAppLanguageAction => ({
+export const SetAppLanguage = (
+  payload: 'uk' | 'ru' | 'en',
+): SetAppLanguageAction => ({
   type: HelperConsts.SET_APP_LANGUAGE,
   payload,
 });

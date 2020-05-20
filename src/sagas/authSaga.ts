@@ -2,7 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import {
   NavigationService,
   SecureStorageService,
-  serviceAPIAuth,
+  ServiceAPIAuth,
 } from '@src/services';
 import SplashScreen from 'react-native-splash-screen';
 import { consoleLog, networkErrorsHandler } from '@src/utils';
@@ -15,27 +15,24 @@ import {
   ToggleAfterRegisterPopup,
 } from '@src/redux/auth/actions';
 import { ApiResponse } from 'apisauce';
-import { TSignInResponse } from '@src/constants/commonTypes';
+import { TSignInResponse, TSignUpResponse } from '@src/constants/commonTypes';
 import { navigationStackNames } from '@src/constants';
-import { AnyAction } from 'redux';
+import {
+  SignInRequestAction,
+  SignUpRequestAction,
+} from '@src/redux/auth/types';
 
-export function* signInSaga({
-  payload = {
-    email: '',
-    password: '',
-  },
-  callback = (): void => {},
-}: AnyAction) {
+export function* signInSaga({ payload, callback }: SignInRequestAction) {
   try {
     const response: ApiResponse<TSignInResponse> = yield call(
-      serviceAPIAuth.signIn,
+      ServiceAPIAuth.signIn,
       payload,
     );
     if (response.ok && response.data) {
       yield put(IsAnimationLoginLayout(true));
       const { token } = response.data;
       yield put(SignInSuccess());
-      yield call(serviceAPIAuth.setTokenToHeaders, token);
+      yield call(ServiceAPIAuth.setTokenToHeaders, token);
       yield call(SecureStorageService.setToken, token);
     } else {
       throw response;
@@ -48,16 +45,12 @@ export function* signInSaga({
   }
 }
 
-export function* signUpSaga({
-  payload = {
-    email: '',
-    password: '',
-    subscribe: false,
-  },
-  callback = (): void => {},
-}: AnyAction) {
+export function* signUpSaga({ payload, callback }: SignUpRequestAction) {
   try {
-    const response = yield call(serviceAPIAuth.signUp, payload);
+    const response: ApiResponse<TSignUpResponse> = yield call(
+      ServiceAPIAuth.signUp,
+      payload,
+    );
     if (response.ok) {
       yield put(SignUpSuccess());
       yield put(ToggleAfterRegisterPopup(true));
@@ -77,7 +70,7 @@ export function* autoSignIn() {
   try {
     const token = yield call(SecureStorageService.getToken);
     if (token) {
-      yield call(serviceAPIAuth.setTokenToHeaders, token);
+      yield call(ServiceAPIAuth.setTokenToHeaders, token);
       NavigationService.navigate(navigationStackNames.TabStack);
       SplashScreen.hide();
     }

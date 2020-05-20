@@ -23,7 +23,11 @@ export const setI18nConfig = (callback: Function = (): void => {}): void => {
     RNLocalize.findBestAvailableLanguage(Object.keys(translationGetters)) ||
     fallback;
 
-  setCurrentLanguage(languageTag);
+  if (languageTag === ('uk' || 'ru' || 'en')) {
+    setCurrentLanguage(languageTag);
+  } else {
+    setCurrentLanguage('uk');
+  }
 
   callback(languageTag);
 };

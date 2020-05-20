@@ -1,15 +1,15 @@
-import { NavigationService } from '@src/services/navigationService';
-import { serviceAPIAuth } from '@src/services/api/serviceAPIAuth';
-import { DispatcherService } from '@src/services/dispatcherService';
-import { serviceAPIProducts } from '@src/services/api/serviceAPIProducts';
-import { SecureStorageService } from '@src/services/secureStorageService';
-import { SocialNetworkService } from '@src/services/socialNetworkService';
+import { NavigationService } from '@src/services/NavigationService';
+import { ServiceAPIAuth } from '@src/services/api/ServiceAPIAuth';
+import { DispatcherService } from '@src/services/DispatcherService';
+import { ServiceAPIProducts } from '@src/services/api/ServiceAPIProducts';
+import { SecureStorageService } from '@src/services/SecureStorageService';
+import { SocialNetworkService } from '@src/services/SocialNetworkService';
 
 export {
   NavigationService,
-  serviceAPIAuth,
+  ServiceAPIAuth,
   DispatcherService,
-  serviceAPIProducts,
+  ServiceAPIProducts,
   SecureStorageService,
   SocialNetworkService,
 };

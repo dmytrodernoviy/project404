@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Switch, Text, View } from 'react-native';
 import styles from '@src/features/authorization/signUp/components/SubscribeSwitch/styles';
-import { Props } from './types';
 import { colors, translationsConstants } from '@src/constants';
 import { translationString } from '@src/translations';
 
-const SubscribeSwitch: React.FC<Props> = ({ handleSwitch, locale }) => {
+interface TProps {
+  handleSwitch: (name: string, value: boolean) => void;
+  locale: string;
+}
+
+const SubscribeSwitch: React.FC<TProps> = ({ handleSwitch, locale }) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = (): void => {
     setIsEnabled((prevState) => {

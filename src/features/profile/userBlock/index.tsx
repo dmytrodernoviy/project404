@@ -4,9 +4,11 @@ import styles from './styles';
 import { useProfileAnimation } from '@src/features/profile/userBlock/hooks';
 import { images } from '@src/constants';
 
-const UserBlock: React.FC<{ scale: Animated.AnimatedInterpolation }> = ({
-  scale,
-}) => {
+interface TProps {
+  scale: Animated.AnimatedInterpolation;
+}
+
+const UserBlock: React.FC<TProps> = ({ scale }) => {
   const {
     containerTranslate,
     userPhotoTranslate,

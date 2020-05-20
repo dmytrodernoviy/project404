@@ -1,12 +1,27 @@
 import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import {
+  NativeSyntheticEvent,
+  Text,
+  TextInput,
+  TextInputFocusEventData,
+  View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Fontisto';
 import normalize from 'react-native-normalize';
 import styles from './styles';
 import { colors } from '@src/constants';
-import { Props } from '@src/components/FormInput/types';
 
-const FormInput: React.FC<Props> = ({
+interface TProps {
+  type: 'email' | 'login' | 'password';
+  placeholder: string;
+  value: string;
+  error: string | undefined;
+  onChangeText: (value: string) => void;
+  onBlur: (e: NativeSyntheticEvent<TextInputFocusEventData> | string) => void;
+  touched: boolean | undefined;
+}
+
+const FormInput: React.FC<TProps> = ({
   type,
   placeholder,
   onBlur,

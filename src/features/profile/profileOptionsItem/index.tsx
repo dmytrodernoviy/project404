@@ -5,6 +5,12 @@ import styles from './styles';
 import LanguagePicker from '@src/features/profile/languagePicker';
 import LogoutButton from '@src/features/profile/logoutButton';
 
+interface TProps {
+  index: number;
+  type: string;
+  onLogout: () => void;
+}
+
 const renderChildrenByType = (
   type: string,
   onPress: () => void,
@@ -19,11 +25,7 @@ const renderChildrenByType = (
   }
 };
 
-const ProfileOptionsItem: React.FC<{
-  index: number;
-  type: string;
-  onLogout: () => void;
-}> = ({ index, type, onLogout }) => {
+const ProfileOptionsItem: React.FC<TProps> = ({ index, type, onLogout }) => {
   const { itemTranslate, opacity } = useProfileOptionsAnimation({ index });
   return (
     <Animated.View

@@ -7,10 +7,18 @@ import {
 } from 'react-native';
 import { DispatcherService } from '@src/services';
 import SplashScreen from 'react-native-splash-screen';
+import {
+  SignInFormValuesType,
+  SignUpFormValuesType,
+} from '@src/redux/auth/types';
 
 export const useAnimationButtonAndRequest = (
   requestType: 'signIn' | 'signUp',
-) => {
+): {
+  scaleLoaderValue: Animated.Value;
+  scaleButtonValue: Animated.Value;
+  onSubmit: (values: SignInFormValuesType | SignUpFormValuesType) => void;
+} => {
   const scaleButtonValue = useRef(new Animated.Value(1)).current;
   const scaleLoaderValue = useRef(new Animated.Value(0)).current;
   const [isDisabled, setIsDisabled] = useState(false);

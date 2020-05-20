@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 import { consoleLog, networkErrorsHandler, optimizeResponse } from '@src/utils';
-import { serviceAPIProducts } from '@src/services';
+import { ServiceAPIProducts } from '@src/services';
 import {
   GetProductsFailure,
   GetProductsSuccess,
@@ -8,16 +8,22 @@ import {
   SearchProductSuccess,
 } from '@src/redux/products/actions';
 import { ApiResponse } from 'apisauce';
-import { TProductsResponse } from '@src/constants/commonTypes';
-import { AnyAction } from 'redux';
+import {
+  TProductsResponse,
+  TSearchableProductsData,
+} from '@src/constants/commonTypes';
+import {
+  GetProductsRequest,
+  SearchProductRequest,
+} from '@src/redux/products/types';
 
 export function* getProductsSaga({
   callback = (): void => {},
-  page = 1,
-}: AnyAction) {
+  page,
+}: GetProductsRequest) {
   try {
     const response: ApiResponse<TProductsResponse> = yield call(
-      serviceAPIProducts.getProducts,
+      ServiceAPIProducts.getProducts,
       { page },
     );
     if (response.ok && response.data) {
@@ -37,12 +43,16 @@ export function* getProductsSaga({
   }
 }
 
-export function* searchProducts({ payload = '' }: AnyAction) {
+export function* searchProducts({ payload }: SearchProductRequest) {
   try {
-    const response = yield call(serviceAPIProducts.searchProducts, {
-      payload,
-    });
-    if (response.ok) {
+    const response: ApiResponse<TSearchableProductsData> = yield call(
+      ServiceAPIProducts.searchProducts,
+      {
+        payload,
+      },
+    );
+    consoleLog('search', response);
+    if (response.ok && response.data) {
       yield put(SearchProductSuccess({ payload: response.data.aPhrases }));
     } else {
       throw response;

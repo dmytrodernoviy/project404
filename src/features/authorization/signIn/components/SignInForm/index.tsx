@@ -11,9 +11,11 @@ import { HelperSelector } from '@src/redux/helper/selectors';
 import { useAnimationButtonAndRequest } from '@src/features/authorization/hooks';
 import NextScreenButton from '@src/features/authorization/signIn/components/NextScreenButton';
 
-const SignInForm: React.FC<{ changeScreen: () => void }> = ({
-  changeScreen,
-}) => {
+interface TProps {
+  changeScreen: () => void;
+}
+
+const SignInForm: React.FC<TProps> = ({ changeScreen }) => {
   const locale = useSelector(HelperSelector.locale);
   const {
     scaleButtonValue,

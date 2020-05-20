@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import { TextInput, TouchableOpacity, View, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import normalize from 'react-native-normalize';
 import styles from './styles';
-import { Props } from './types';
 import { colors } from '@src/constants';
 
-const SearchBar: React.FC<Props> = ({
+interface TProps {
+  isAnimatedFinished?: boolean;
+  placeholder: string;
+  searchInputRef: RefObject<TextInput>;
+  searchInputOpacity: Animated.AnimatedInterpolation;
+  onChangeText: (query: string) => void;
+  onAnimationStart?: (toValue: number, callbackValue: boolean) => void;
+}
+
+const SearchBar: React.FC<TProps> = ({
   placeholder,
   searchInputOpacity,
   searchInputRef,

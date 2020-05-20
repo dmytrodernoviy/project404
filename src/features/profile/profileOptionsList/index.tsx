@@ -3,10 +3,12 @@ import { Animated } from 'react-native';
 import styles from './styles';
 import ProfileOptionsItem from '@src/features/profile/profileOptionsItem';
 
-export const ProfileOptions: React.FC<{
+interface TProps {
   onLogout: () => void;
   headerScale: Animated.Value;
-}> = ({ onLogout, headerScale }) => {
+}
+
+export const ProfileOptions: React.FC<TProps> = ({ onLogout, headerScale }) => {
   const data = [{ type: 'langPicker' }, { type: 'logoutButton' }];
 
   return (

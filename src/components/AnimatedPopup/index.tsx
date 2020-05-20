@@ -9,7 +9,11 @@ import { useSelector } from 'react-redux';
 import { AuthSelectors } from '@src/redux/auth/selectors';
 import { DispatcherService } from '@src/services';
 
-const AnimatedPopup: React.FC<{ onPress: () => void }> = ({ onPress }) => {
+interface TProps {
+  onPress: () => void;
+}
+
+const AnimatedPopup: React.FC<TProps> = ({ onPress }) => {
   const isVisible = useSelector(AuthSelectors.isAfterRegisterPopupVisible);
 
   const onButtonPress = (): void => {

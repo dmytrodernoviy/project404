@@ -4,13 +4,19 @@ import {
 } from '@src/redux/auth/types';
 import { apiInstance } from '@src/services/api/instanceAPI';
 import { apiURLs } from '@src/constants';
+import { ApiResponse } from 'apisauce';
+import { TSignInResponse, TSignUpResponse } from '@src/constants/commonTypes';
 
 class Service {
-  signIn(formValues: SignInFormValuesType) {
+  signIn(
+    formValues: SignInFormValuesType,
+  ): Promise<ApiResponse<TSignInResponse>> {
     return apiInstance.post(apiURLs.signIn, formValues);
   }
 
-  signUp(formValues: SignUpFormValuesType) {
+  signUp(
+    formValues: SignUpFormValuesType,
+  ): Promise<ApiResponse<TSignUpResponse>> {
     return apiInstance.post(apiURLs.signUp, formValues);
   }
 
@@ -22,4 +28,4 @@ class Service {
   }
 }
 
-export const serviceAPIAuth = new Service();
+export const ServiceAPIAuth = new Service();

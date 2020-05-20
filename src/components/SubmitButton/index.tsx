@@ -7,14 +7,20 @@ import {
   TouchableOpacity,
   Easing,
 } from 'react-native';
-import { Props } from '@src/components/SubmitButton/types';
 import styles from '@src/components/SubmitButton/styles';
 import { colors, navigationStackNames } from '@src/constants';
 import { useSelector } from 'react-redux';
 import { AuthSelectors } from '@src/redux/auth/selectors';
 import { DispatcherService, NavigationService } from '@src/services';
 
-const SubmitButton: React.FC<Props> = ({
+interface TProps {
+  label: string;
+  scaleButtonValue: Animated.Value;
+  scaleLoaderValue: Animated.Value;
+  onSubmitPress: () => void;
+}
+
+const SubmitButton: React.FC<TProps> = ({
   label,
   onSubmitPress,
   scaleLoaderValue,

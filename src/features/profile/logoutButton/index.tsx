@@ -8,7 +8,11 @@ import { useSelector } from 'react-redux';
 import { HelperSelector } from '@src/redux/helper/selectors';
 import { translationString } from '@src/translations';
 
-const LogoutButton: React.FC<{ onPress: () => void }> = ({ onPress }) => {
+interface TProps {
+  onPress: () => void;
+}
+
+const LogoutButton: React.FC<TProps> = ({ onPress }) => {
   const locale = useSelector(HelperSelector.locale);
 
   return (

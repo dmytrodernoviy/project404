@@ -44,7 +44,7 @@ export const SearchProductRequest = ({
 export const SearchProductSuccess = ({
   payload,
 }: {
-  payload: Array<TProductItem>;
+  payload: Array<string>;
 }): GetProductsType => ({
   type: GetProductsConstants.SEARCH_PRODUCTS_SUCCESS,
   payload,

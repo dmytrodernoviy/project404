@@ -6,14 +6,16 @@ import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
 } from 'react-native';
-import styles from './signUp.styles';
+import styles from './styles';
 import { images } from '@src/constants';
 import SignUpForm from '@src/features/authorization/signUp/components/signUpForm';
 import { AnimatedPopup } from '@src/components';
 
-const SignUpScreen: React.FC<{ changeScreen: () => void }> = ({
-  changeScreen,
-}) => {
+interface TProps {
+  changeScreen: () => void;
+}
+
+const SignUpScreen: React.FC<TProps> = ({ changeScreen }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.dismissContainer}>

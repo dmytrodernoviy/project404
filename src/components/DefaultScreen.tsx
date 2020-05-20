@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import { colors } from '@src/constants';
 
-class DefaultScreen extends Component {
-  render() {
-    return (
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: colors.tabNavigatior,
-        }}
-      />
-    );
-  }
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.tabNavigatior,
+  },
+});
+
+const DefaultScreen: React.FC = () => {
+  return <View style={styles.container} />;
+};
 
 export default DefaultScreen;

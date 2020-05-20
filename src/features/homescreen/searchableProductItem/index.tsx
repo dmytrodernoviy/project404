@@ -5,7 +5,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import normalize from 'react-native-normalize';
 import { colors } from '@src/constants';
 
-const SearchableProductItem: React.FC<{ title: string }> = ({ title }) => {
+interface TProps {
+  title: string;
+}
+
+const SearchableProductItem: React.FC<TProps> = ({ title }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>

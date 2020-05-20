@@ -7,10 +7,10 @@ import ProfileScreen from '@src/features/profile';
 
 const TabStack = createBottomTabNavigator(
   {
-    ss: DefaultScreen,
-    sss: DefaultScreen,
+    FirstDefault: DefaultScreen,
+    SecondDefault: DefaultScreen,
     [screenNames.HomeScreen]: HomeScreen,
-    ssss123: DefaultScreen,
+    ThirdDefault: DefaultScreen,
     [screenNames.ProfileScreen]: ProfileScreen,
   },
   {

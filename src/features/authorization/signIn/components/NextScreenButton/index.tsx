@@ -1,13 +1,17 @@
 import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
-import { Props } from '@src/features/authorization/signIn/components/NextScreenButton/types';
 import styles from '@src/features/authorization/signIn/components/NextScreenButton/styles';
 import { useSelector } from 'react-redux';
 import { HelperSelector } from '@src/redux/helper/selectors';
 import { translationString } from '@src/translations';
 import { translationsConstants } from '@src/constants';
 
-const NextScreenButton: React.FC<Props> = ({ onPress, isRegisterScreen }) => {
+interface TProps {
+  onPress: () => void;
+  isRegisterScreen?: boolean;
+}
+
+const NextScreenButton: React.FC<TProps> = ({ onPress, isRegisterScreen }) => {
   const locale = useSelector(HelperSelector.locale);
   return (
     <View style={styles.container}>

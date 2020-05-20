@@ -12,9 +12,11 @@ import { translationsConstants } from '@src/constants';
 import { useAnimationButtonAndRequest } from '@src/features/authorization/hooks';
 import NextScreenButton from '@src/features/authorization/signIn/components/NextScreenButton';
 
-const SignUpForm: React.FC<{ changeScreen: () => void }> = ({
-  changeScreen,
-}) => {
+interface TProps {
+  changeScreen: () => void;
+}
+
+const SignUpForm: React.FC<TProps> = ({ changeScreen }) => {
   const locale = useSelector(HelperSelector.locale);
   const {
     scaleButtonValue,

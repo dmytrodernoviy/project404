@@ -4,11 +4,17 @@ import { View, ViewStyle } from 'react-native';
 import styles from './styles';
 import { colors } from '@src/constants';
 
-const ActivitySpinner: React.FC<{
+interface TProps {
   isLoading: boolean;
   containerStyle?: ViewStyle;
   spinnerSize: number;
-}> = ({ isLoading, containerStyle, spinnerSize }) => {
+}
+
+const ActivitySpinner: React.FC<TProps> = ({
+  isLoading,
+  containerStyle,
+  spinnerSize,
+}) => {
   return (
     <>
       {isLoading && (

@@ -1,7 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { Animated } from 'react-native';
 
-export const useProductItemAnimation = ({ index }: { index: number }) => {
+export const useProductItemAnimation = ({
+  index,
+}: {
+  index: number;
+}): {
+  itemScale: Animated.Value;
+  opacity: Animated.AnimatedInterpolation;
+} => {
   const itemScale = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {

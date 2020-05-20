@@ -8,7 +8,6 @@ import {
 import normalize from 'react-native-normalize';
 import ProductsListItem from '@src/features/homescreen/productsListItem';
 import styles from './styles';
-import { Props } from './types';
 import { TProductItem } from '@src/constants/commonTypes';
 import { colors } from '@src/constants';
 import { useSelector } from 'react-redux';
@@ -17,7 +16,12 @@ import { DispatcherService } from '@src/services';
 import { ActivitySpinner } from '@src/components';
 import { isIOSPlatform } from '@src/utils/helpers';
 
-const ProductsList: React.FC<Props> = ({ data, toggleHideHeader }) => {
+interface TProps {
+  data: Array<TProductItem>;
+  toggleHideHeader: (value: number) => void;
+}
+
+const ProductsList: React.FC<TProps> = ({ data, toggleHideHeader }) => {
   const isRefreshing = useSelector(ProductsSelectors.isRefreshing);
   const isLoadingMore = useSelector(ProductsSelectors.isLoadingMore);
   const dynamicValues = useRef({

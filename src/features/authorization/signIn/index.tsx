@@ -6,14 +6,16 @@ import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
 } from 'react-native';
-import styles from './signIn.styles';
+import styles from './styles';
 import { images } from '@src/constants';
 import SignInForm from '@src/features/authorization/signIn/components/SignInForm';
 import SocialButton from '@src/features/authorization/socialButton';
 
-const SignInScreen: React.FC<{ changeScreen: () => void }> = ({
-  changeScreen,
-}) => {
+interface TProps {
+  changeScreen: () => void;
+}
+
+const SignInScreen: React.FC<TProps> = ({ changeScreen }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.dismissContainer}>

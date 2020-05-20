@@ -6,10 +6,12 @@ import { colors, images } from '@src/constants';
 import { TProductItem } from '@src/constants/commonTypes';
 import { useProductItemAnimation } from '@src/features/homescreen/productsListItem/hooks';
 
-const ProductsListItem: React.FC<{ item: TProductItem; index: number }> = ({
-  item,
-  index,
-}) => {
+interface TProps {
+  item: TProductItem;
+  index: number;
+}
+
+const ProductsListItem: React.FC<TProps> = ({ item, index }) => {
   const { opacity, itemScale } = useProductItemAnimation({ index });
   return (
     <Animated.View

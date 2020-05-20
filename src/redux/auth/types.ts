@@ -1,14 +1,14 @@
-export const AuthActionsConstants = {
-  SIGN_IN_REQUEST: 'SIGN_IN_REQUEST',
-  SIGN_IN_SUCCESS: 'SIGN_IN_SUCCESS',
-  SIGN_IN_FAILURE: 'SIGN_IN_FAILURE',
-  SIGN_UP_REQUEST: 'SIGN_UP_REQUEST',
-  SIGN_UP_SUCCESS: 'SIGN_UP_SUCCESS',
-  SIGN_UP_FAILURE: 'SIGN_UP_FAILURE',
-  AUTO_SIGN_IN: 'AUTO_SIGN_IN',
-  TOGGLE_AFTER_REGISTER_POPUP: 'TOGGLE_AFTER_REGISTER_POPUP',
-  IS_ANIMATION_LOGIN_LAYOUT: 'IS_ANIMATION_LOGIN_LAYOUT',
-};
+export enum AuthActionsConstants {
+  SIGN_IN_REQUEST = 'SIGN_IN_REQUEST',
+  SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS',
+  SIGN_IN_FAILURE = 'SIGN_IN_FAILURE',
+  SIGN_UP_REQUEST = 'SIGN_UP_REQUEST',
+  SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS',
+  SIGN_UP_FAILURE = 'SIGN_UP_FAILURE',
+  AUTO_SIGN_IN = 'AUTO_SIGN_IN',
+  TOGGLE_AFTER_REGISTER_POPUP = 'TOGGLE_AFTER_REGISTER_POPUP',
+  IS_ANIMATION_LOGIN_LAYOUT = 'IS_ANIMATION_LOGIN_LAYOUT',
+}
 
 // Types for actions
 export interface SignInFormValuesType {
@@ -29,7 +29,7 @@ export interface AuthReducerType {
 }
 
 // Types for actions creators
-interface SignInRequestAction {
+export interface SignInRequestAction {
   type: typeof AuthActionsConstants.SIGN_IN_REQUEST;
   payload: SignInFormValuesType;
   callback: () => void;
@@ -43,7 +43,7 @@ interface SignInFailureAction {
   type: typeof AuthActionsConstants.SIGN_IN_FAILURE;
 }
 
-interface SignUpRequestAction {
+export interface SignUpRequestAction {
   type: typeof AuthActionsConstants.SIGN_UP_REQUEST;
   payload: SignUpFormValuesType;
   callback: () => void;

@@ -47,7 +47,7 @@ export const DispatcherService = {
     store.dispatch(IsAnimationLoginLayout(payload));
   },
 
-  setAppLanguage: (payload: string): void => {
+  setAppLanguage: (payload: 'uk' | 'ru' | 'en'): void => {
     store.dispatch(SetAppLanguage(payload));
   },
 

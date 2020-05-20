@@ -12,11 +12,17 @@ import { useSelector } from 'react-redux';
 import { HelperSelector } from '@src/redux/helper/selectors';
 import { translationString } from '@src/translations';
 
-const ConfirmPopup: React.FC<{
+interface TProps {
   isVisible: boolean;
   onAccept: () => void;
   onCanceled: () => void;
-}> = ({ isVisible, onAccept, onCanceled }) => {
+}
+
+const ConfirmPopup: React.FC<TProps> = ({
+  isVisible,
+  onAccept,
+  onCanceled,
+}) => {
   const locale = useSelector(HelperSelector.locale);
 
   return (
