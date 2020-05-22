@@ -1,5 +1,5 @@
 import { TProductItem } from '@src/constants/commonTypes';
-import { Dimensions, Platform } from 'react-native';
+import { Dimensions, Platform, BackHandler, Alert } from 'react-native';
 
 export const { height: screenHeight, width: screenWidth } = Dimensions.get(
   'window',
@@ -20,4 +20,22 @@ export const optimizeResponse = {
         aLabels: item.aLabels,
       };
     }),
+};
+
+export const handleAndroidBackButton = (callback: () => void): void => {
+  BackHandler.addEventListener('hardwareBackPress', () => {
+    callback();
+    return true;
+  });
+};
+
+export const removeAndroidBackButtonHandler = (): void => {
+  BackHandler.removeEventListener('hardwareBackPress', () => undefined);
+};
+
+export const exitAlert = (): void => {
+  Alert.alert('Confirm exit', 'Do you want to quit the app?', [
+    { text: 'CANCEL', style: 'cancel' },
+    { text: 'OK', onPress: (): void => BackHandler.exitApp() },
+  ]);
 };

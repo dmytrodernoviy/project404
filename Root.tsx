@@ -4,6 +4,11 @@ import { DispatcherService, NavigationService } from '@src/services';
 import { setI18nConfig } from '@src/translations';
 import { SnackBarComponent } from '@src/components';
 import { GoogleSignin } from '@react-native-community/google-signin';
+import {
+  exitAlert,
+  handleAndroidBackButton,
+  removeAndroidBackButtonHandler,
+} from '@src/utils/helpers';
 
 const Root: React.FC = () => {
   const appStack = useRef(null);
@@ -14,12 +19,17 @@ const Root: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    handleAndroidBackButton(exitAlert);
     GoogleSignin.configure({
       webClientId:
         '685881540446-h26b94vqcj29cbgaq1mfj6un0tb479vr.apps.googleusercontent.com',
     });
     NavigationService.setTopLevelNavigator(appStack.current);
     setI18nConfig(setInitAppLanguage);
+
+    return (): void => {
+      removeAndroidBackButtonHandler();
+    };
   }, [setInitAppLanguage]);
 
   return (
