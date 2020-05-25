@@ -1,9 +1,9 @@
 import {
-  NavigationActions,
-  NavigationContainerComponent,
-} from 'react-navigation';
+  CommonActions,
+  NavigationContainerRef,
+} from '@react-navigation/native';
 
-type Navigator = NavigationContainerComponent | null;
+type Navigator = NavigationContainerRef | null;
 
 class Service {
   navigator: Navigator;
@@ -15,14 +15,9 @@ class Service {
     this.navigator = navigatorRef;
   };
 
-  navigate<TParams>(routeName: string, params?: TParams): void {
+  navigate(name: string, params?: object): void {
     if (this.navigator) {
-      this.navigator.dispatch(
-        NavigationActions.navigate({
-          routeName,
-          params,
-        }),
-      );
+      this.navigator.dispatch(CommonActions.navigate(name, params));
     }
   }
 }
